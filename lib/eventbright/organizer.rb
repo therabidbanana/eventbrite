@@ -1,8 +1,8 @@
 module EventBright
-  class Organizer
-    include EventBright::ApiObject
+  class Organizer < EventBright::ApiObject
 
     updatable :name, :description
+    attr_accessor :url
     def initialize(owner = user, hash = {})
       init_with_hash(hash)
       @owner = owner
@@ -21,4 +21,5 @@ module EventBright
     end
     
   end
+  class OrganizerCollection < ApiObjectCollection; collection_for Organizer; end
 end

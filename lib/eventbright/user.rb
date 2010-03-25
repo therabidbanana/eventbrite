@@ -1,6 +1,5 @@
 module EventBright
-  class User
-    include EventBright::ApiObject
+  class User < EventBright::ApiObject
     
     updatable :email, :password
     attr_accessor :user_key
@@ -44,9 +43,9 @@ module EventBright
       return @venues if @venues && !@dirty_venues
       response = EventBright.call(:user_list_venues, {:user => self})
       # EventBrite creates blank venues on occassion. No point in showing them.
-      venues = response["venues"].map{|v| v["venue"]}.reject{|v| v["address"] == ""}
+      @venues = VenueCollection.new(self, response["venues"], "address")
       @dirty_venues = false
-      @venues = venues.map{|v| Venue.new(self, v)}
+      @venues
     end
     
     def dirty_venues!
@@ -61,9 +60,9 @@ module EventBright
       return @organizers if @organizers && !@dirty_organizers
       response = EventBright.call(:user_list_organizers, {:user => self})
       # EventBrite creates blank venues on occassion. No point in showing them.
-      orgs = response["organizers"].map{|v| v["organizer"]}.reject{|v| v["name"] == ""}
+      @organizers = OrganizerCollection.new(self, response["organizers"], "name")
       @dirty_organizers = false
-      @organizers = orgs.map{|v| Organizer.new(self, v)}
+      @organizers
     end
     
     def events

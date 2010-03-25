@@ -1,8 +1,13 @@
 module EventBright
-  module ApiObject
-    def self.included(mod)
-      mod.extend ApiObjectClass
+  class ApiObject
+    attr_accessor :id
+    def self.updatable(*args)
+      args.each{|symbol|
+        module_eval( "def #{symbol}(); @#{symbol};  end")
+        module_eval( "def #{symbol}=(val); @dirty ||= {}; @attributes ||= {}; @dirty[:#{symbol}] = true if(loaded? && @#{symbol} != val); @#{symbol} = val; @attributes[:#{symbol}] = val; end")
+      }
     end
+    
     def id
       @id
     end
@@ -31,13 +36,33 @@ module EventBright
       (!@id.nil? || @id = "")
     end
   end
-  module ApiObjectClass
-    attr_accessor :id
-    def updatable(*args)
-      args.each{|symbol|
-        module_eval( "def #{symbol}(); @#{symbol};  end")
-        module_eval( "def #{symbol}=(val); @dirty ||= {}; @attributes ||= {}; @dirty[:#{symbol}] = true if(loaded? && @#{symbol} != val); @#{symbol} = val; @attributes[:#{symbol}] = val; end")
-      }
+  
+  class ApiObjectCollection
+    def self.collection_for(type = false)
+      @collection_for = type if type
+      @collection_for 
+    end
+    
+    def self.singlet_name(name = false)
+      @singlet_name = name if name
+      @singlet_name || @collection_for.to_s.gsub('EventBright::', '').downcase
+    end
+    
+    def self.plural_name(name = false)
+      @plural_name = name if name
+      @plural_name || "#{self.singlet_name}s"
+    end
+    
+    def initialize(owner = false, hash_array = [], reject_if_empty = false)
+      @owner = owner
+      arr = hash_array.map{|v| v[self.class.singlet_name]}
+      arr = arr.reject{|v| v[reject_if_empty] == ""} if reject_if_empty
+      @array = arr.map{|v| self.class.collection_for.new(owner, v)}
+    end
+    
+    def method_missing(meth, *args, &block)
+      @array.__send__(meth, *args, &block)
     end
   end
+  
 end
