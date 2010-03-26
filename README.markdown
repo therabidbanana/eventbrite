@@ -1,5 +1,5 @@
 eventbright
------------
+================
 
 A simple library for integrating with EventBrite's API. Requires the "httparty" gem for connecting and doing XML parsing.
 
@@ -13,23 +13,24 @@ Usage
 
 Authentication
 --------------
-Many methods require user authentication. For these methods, you can pass a user object
-as an authentication token, and the user's api_key will automatically be used for the
-request. 
+Many methods require user authentication. For these methods, you can pass a user object as an authentication token, and the user's api_key will automatically be used for the request. 
 
 Example:
     
     EventBright::Event.new({"x" => "y"... , "user" => user})
 
+Known Bugs
+----------
+
+1. This library doesn't allow timezones outside the US, and will cause an error if you try it. I'd need to integrate a timezone library to negotiate EventBrite's inconsistent date formats, and I'm just way to lazy to currently do that. Send me an email if it's a problem for you and I'll probably be motivated enough to spend the hour or two making it work.
+2. This library has no specs. I tested everything in IRB. :(
 
 A Note About App Keys
 ---------------------
 
-This gem has an application key for accessing EventBrite, but each app key is limited to 30,000 requests a day. To make sure your limits aren't affected by others, you should register for your
-own app key specific to the application you're adding the gem to. 
+This gem has an application key for accessing EventBrite, but each app key is limited to 30,000 requests a day. To make sure your limits aren't affected by others, you should register for your own app key specific to the application you're adding the gem to. 
 
-If you just want to give the gem a whirl (you have to wait for approval to get your own)
-just don't call setup. The app key for the gem will be used.
+If you just want to give the gem a whirl (you have to wait for approval to get your own) just don't call setup. The app key for the gem will be used.
 
 Learn more about EventBrite's App Key policy here: [Terms of Service](http://www.eventbrite.com/api/terms)
 
@@ -44,7 +45,7 @@ A list of sticking points for anyone attempting their own integration with Event
 __/get => /update variable inconsistencies__
 
 * event.id => event.event_id
-* event.timezone (Olson format, ex: "America/New_York") => event.timezone (GMT offset hours, ex: "GMT-05")
+* event.timezone (Olson format, ex: "US/Central") => event.timezone (GMT offset hours, ex: "GMT-05")
 * event.privacy (String representing privacy "Private"|"Public") => event.privacy (Boolean 0 = public)
 * event.url => event.personalized_url
 * venue.address => venue.adress
