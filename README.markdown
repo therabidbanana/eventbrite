@@ -1,7 +1,7 @@
 eventbright
 -----------
 
-A simple library for integrating with EventBrite's API. Requires the "crack" gem for XML parsing.
+A simple library for integrating with EventBrite's API. Requires the "httparty" gem for connecting and doing XML parsing.
 
 Usage
 -----
@@ -31,9 +31,9 @@ own app key specific to the application you're adding the gem to.
 If you just want to give the gem a whirl (you have to wait for approval to get your own)
 just don't call setup. The app key for the gem will be used.
 
-Learn more about EventBrite's App Key policy here: "Terms of Service":http://www.eventbrite.com/api/terms
+Learn more about EventBrite's App Key policy here: [Terms of Service](http://www.eventbrite.com/api/terms)
 
-Register for your own app key here: "Request a Key":http://www.eventbrite.com/api/key/
+Register for your own app key here: [Request a Key](http://www.eventbrite.com/api/key/)
 
 
 API Inconsistencies:
