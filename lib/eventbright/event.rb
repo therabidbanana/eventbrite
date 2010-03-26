@@ -36,7 +36,6 @@ module EventBright
       return @timezone if @timezone =~ /GMT[+-]\d{1,2}/
       time = TZInfo::Timezone.get(@timezone).current_period
       seconds = time.utc_offset
-      seconds = seconds + 3600 if !time.dst?
       offset = (seconds / (60*60))
       @timezone = (offset < 0 ? "GMT#{offset}" : "GMT+#{offset}")
     end
