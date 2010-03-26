@@ -1,3 +1,4 @@
+require 'tzinfo'
 module EventBright
   class Event < EventBright::ApiObject
 
@@ -31,6 +32,15 @@ module EventBright
       @privacy
     end
     
+    def timezone
+      return @timezone if @timezone =~ /GMT[+-]\d{1,2}/
+      time = TZInfo::Timezone.get(@timezone).current_period
+      seconds = time.utc_offset
+      seconds = seconds + 3600 if !time.dst?
+      offset = (seconds / (60*60))
+      @timezone = (offset < 0 ? "GMT#{offset}" : "GMT+#{offset}")
+    end
+    
     def private?
       privacy == 0 ? true : false
     end
@@ -54,8 +64,8 @@ module EventBright
     def save
       opts = {:user => @owner}
       opts.merge!(update_hash)
-      opts[:privacy] = privacy if opts[:privacy]
-      opts.delete(:timezone)
+      opts[:privacy] = privacy if opts[:privacy]      # Fix privacy formatting
+      opts[:timezone] = timezone if opts[:timezone]   # Fix Timezone formatting
       if loaded?
         opts.merge! :event_id => @id  # Another api inconsistency... how suprising
         EventBright.call(:event_update, opts)

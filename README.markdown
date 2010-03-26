@@ -22,8 +22,7 @@ Example:
 Known Bugs
 ----------
 
-1. This library doesn't allow timezones outside the US, and will cause an error if you try it. I'd need to integrate a timezone library to negotiate EventBrite's inconsistent date formats, and I'm just way to lazy to currently do that. Send me an email if it's a problem for you and I'll probably be motivated enough to spend the hour or two making it work.
-2. This library has no specs. I tested everything in IRB. :(
+1. This library has no specs. I tested everything in IRB. :(
 
 A Note About App Keys
 ---------------------
