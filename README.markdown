@@ -1,7 +1,7 @@
 eventbright
 ================
 
-A simple library for integrating with EventBrite's API. Requires the "httparty" gem for connecting and doing XML parsing.
+A simple library for integrating with EventBrite's API. Requires the "httparty" gem for connecting and doing XML parsing, and "tzinfo" gem for getting back and forth between timezone names and GMT offsets.
 
 Usage
 -----
