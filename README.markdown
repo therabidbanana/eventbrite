@@ -41,7 +41,7 @@ API Inconsistencies:
 
 A list of sticking points for anyone attempting their own integration with EventBrite:
 
-*/get => /update variable inconsistencies*
+__/get => /update variable inconsistencies__
 
 * event.id => event.event_id
 * event.timezone (Olson format, ex: "America/New_York") => event.timezone (GMT offset hours, ex: "GMT-05")
@@ -51,7 +51,7 @@ A list of sticking points for anyone attempting their own integration with Event
 * venue.address_2 => venue.adress_2
 * venue.name => venue.venue
 
-*Fields you can't edit*
+__Fields you can't edit__
 
 * event.category
 * event.tags
