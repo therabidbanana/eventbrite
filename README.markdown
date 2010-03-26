@@ -36,6 +36,27 @@ Learn more about EventBrite's App Key policy here: "Terms of Service":http://www
 Register for your own app key here: "Request a Key":http://www.eventbrite.com/api/key/
 
 
+API Inconsistencies:
+--------------------
+
+A list of sticking points for anyone attempting their own integration with EventBrite:
+
+*/get => /update variable inconsistencies*
+
+* event.id => event.event_id
+* event.timezone (Olson format, ex: "America/New_York") => event.timezone (GMT offset hours, ex: "GMT-05")
+* event.privacy (String representing privacy "Private"|"Public") => event.privacy (Boolean 0 = public)
+* event.url => event.personalized_url
+* venue.address => venue.adress
+* venue.address_2 => venue.adress_2
+* venue.name => venue.venue
+
+*Fields you can't edit*
+
+* event.category
+* event.tags
+
+
 Note on Patches/Pull Requests
 -----------------------------
  

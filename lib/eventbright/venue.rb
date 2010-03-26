@@ -9,6 +9,7 @@ module EventBright
     attr_accessor :latitude, :longitude
     def initialize(owner = user, hash = {})
       @id = nil
+      hash.delete('Lat-Long')
       init_with_hash(hash)
       @owner = owner
     end

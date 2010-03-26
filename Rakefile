@@ -33,7 +33,7 @@ end
 
 task :spec => :check_dependencies
 
-task :default => :spec
+task :default => :irb
 
 require 'rake/rdoctask'
 Rake::RDocTask.new do |rdoc|
@@ -43,4 +43,10 @@ Rake::RDocTask.new do |rdoc|
   rdoc.title = "eventbright #{version}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
+end
+
+
+desc "Runs irb with eventbright lib"
+task :irb do
+  sh "irb -r 'lib/eventbright'"
 end

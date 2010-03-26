@@ -12,8 +12,8 @@ module EventBright
       else
         @user_key = user
       end
-      @venues = @organizers = []
-      @dirty_venues = @dirty_organizers = true
+      @events = @venues = @organizers = []
+      @dirty_events = @dirty_venues = @dirty_organizers = true
       load
     end
     
@@ -56,6 +56,10 @@ module EventBright
       @dirty_organizers = true
     end
     
+    def dirty_events!
+      @dirty_events = true
+    end
+    
     def organizers
       return @organizers if @organizers && !@dirty_organizers
       response = EventBright.call(:user_list_organizers, {:user => self})
@@ -66,9 +70,12 @@ module EventBright
     end
     
     def events
+      return @events if @events && !@dirty_events
       response = EventBright.call(:user_list_events, {:user => self})
-      events = response["events"].map{|e| e["event"]}
-      events.map{|e| Event.new(self, e)}
+      # EventBrite creates blank venues on occassion. No point in showing them.
+      @events = EventCollection.new(self, response["events"], "title")
+      @dirty_events = false
+      @events
     end
     
     def auth
