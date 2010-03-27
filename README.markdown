@@ -55,11 +55,13 @@ __Fields you can't edit__
 
 * event.category
 * event.tags
+* event.logo
 
 __Documentation errors__
 
-* /venue_update does not throw an error if "venue" is invalid (or empty). 
-* Dates are not technically ISO 8601 (ISO 8601 specifies a "T", not a space, between date and time)
+* /venue_new and /venue_update does not throw an error if "venue" is invalid/non-unique/empty.
+* Dates are not technically ISO 8601 (ISO 8601 specifies a "T" - not a space - between date and time, so passing perfectly formatted ISO 8601 datetime strings such as those a standard library would provide will cause errors)
+* Error description for event Privacy Error: <pre>"The privacy field must be equal to 0 (public) or 1 (private)"</pre> -> This is the opposite of the actual case. 0 is private and 1 is public, as described in other places within the API.
 
 __Other gotchas__
 
