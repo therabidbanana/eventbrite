@@ -8,7 +8,7 @@ module EventBright
     updatable :country, :country_code
     attr_accessor :latitude, :longitude
     def initialize(owner = user, hash = {})
-      @id = nil
+      @id = hash.delete(:id)
       hash.delete('Lat-Long')
       init_with_hash(hash)
       @owner = owner
@@ -20,13 +20,16 @@ module EventBright
       opts[:venue] = opts[:name]      # eventbrite api fails at consistency (Case: #46349)
       opts[:adress] = opts[:address]  # eventbrite api fails at spelling  (Case: #46346)
       opts[:adress_2] = opts[:address_2]
-      if loaded?
+      call = if loaded?
         opts.merge! :id => @id
         EventBright.call(:venue_update, opts)
       else
         @owner.dirty_venues!
         EventBright.call(:venue_new, opts)
       end
+      self.id = call["process"]["id"] unless loaded?
+      @dirty = {}
+      call
     end
     
     def state;        @region;      end    # Region is same as state in US

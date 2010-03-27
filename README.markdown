@@ -56,6 +56,15 @@ __Fields you can't edit__
 * event.category
 * event.tags
 
+__Documentation errors__
+
+* /venue_update does not throw an error if "venue" is invalid. 
+* Dates are not strictly ISO 8601 (ISO 8601 specifies a "T", not a space, between date and time)
+
+__Other gotchas__
+
+* Venue object included in event has extra "Lat-Long" attribute, along with "latitude" and "longitude". If you're turning a result into an object, this might cause an error if you don't suspect it.
+* Timezones are weird (nothing EventBrite can do about this one): GMT offset for timezones is always computed in standard time (don't adjust for Daylight Savings, unlike UTC offset) 
 
 Note on Patches/Pull Requests
 -----------------------------

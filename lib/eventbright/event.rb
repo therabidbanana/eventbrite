@@ -15,11 +15,13 @@ module EventBright
     attr_accessor :category
     attr_accessor :organizer, :venue
     def initialize(owner = user, hash = {})
+      @id = hash.delete(:id)
       @organizer = Organizer.new(owner, hash.delete('organizer')) if hash['organizer']
       @venue = Venue.new(owner, hash.delete('venue')) if hash['venue']
       tickets = hash.delete('tickets') if hash['tickets']
       init_with_hash(hash)
       @owner = owner
+      @dirty_organizer = @dirty_venue = false
     end
     
     def privacy
@@ -30,6 +32,20 @@ module EventBright
         @privacy = 1
       end
       @privacy
+    end
+    
+    def currency
+      @currency ||= "USD"
+    end
+    
+    def organizer=(val)
+      @dirty_organizer = true
+      @organizer = val
+    end
+    
+    def venue=(val)
+      @dirty_venue = true
+      @venue = val
     end
     
     def timezone
@@ -65,13 +81,20 @@ module EventBright
       opts.merge!(update_hash)
       opts[:privacy] = privacy if opts[:privacy]      # Fix privacy formatting
       opts[:timezone] = timezone if opts[:timezone]   # Fix Timezone formatting
-      if loaded?
+      @organizer.save
+      @venue.save
+      opts[:organizer_id] = @organizer.id if @dirty_organizer
+      opts[:venue_id] = @venue.id if @dirty_venue
+      call = if loaded?
         opts.merge! :event_id => @id  # Another api inconsistency... how suprising
         EventBright.call(:event_update, opts)
       else
         @owner.dirty_events!
         EventBright.call(:event_new, opts)
       end
+      self.id = call["process"]["id"] unless loaded?
+      @dirty = {}
+      call
     end
     
   end

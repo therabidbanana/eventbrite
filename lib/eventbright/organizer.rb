@@ -4,6 +4,7 @@ module EventBright
     updatable :name, :description
     attr_accessor :url
     def initialize(owner = user, hash = {})
+      @id = hash.delete(:id)
       init_with_hash(hash)
       @owner = owner
     end
@@ -11,13 +12,16 @@ module EventBright
     def save
       opts = {:user => @owner}
       opts.merge!(update_hash)
-      if loaded?
+      call = if loaded?
         opts.merge! :id => @id
         EventBright.call(:organizer_update, opts)
       else
         @owner.dirty_organizers!
         EventBright.call(:organizer_new, opts)
       end
+      self.id = call["process"]["id"] unless loaded?
+      @dirty = {}
+      call
     end
     
   end

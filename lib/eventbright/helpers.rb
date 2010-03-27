@@ -4,7 +4,7 @@ module EventBright
     def self.updatable(*args)
       args.each{|symbol|
         module_eval( "def #{symbol}(); @#{symbol};  end")
-        module_eval( "def #{symbol}=(val); @dirty ||= {}; @attributes ||= {}; @dirty[:#{symbol}] = true if(loaded? && @#{symbol} != val); @#{symbol} = val; @attributes[:#{symbol}] = val; end")
+        module_eval( "def #{symbol}=(val); @dirty ||= {}; @attributes ||= {}; @dirty[:#{symbol}] = true if(@#{symbol} != val); @#{symbol} = val; @attributes[:#{symbol}] = val; end")
       }
     end
     
@@ -16,6 +16,7 @@ module EventBright
     end
     
     def init_with_hash(hash, ignore = [])
+      @attributes ||= {}
       hash.each{|k, v| self.__send__("#{k}=", v) unless ignore.include? k }
     end
     
@@ -33,7 +34,7 @@ module EventBright
     # Defines whether the object has been loaded from a remote source. If not, then
     # we assume it's new when saving.
     def loaded?
-      (!@id.nil? || @id = "")
+      (!@id.nil? || @id == "")
     end
   end
   
