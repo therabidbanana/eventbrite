@@ -36,10 +36,10 @@ Learn more about EventBrite's App Key policy here: [Terms of Service](http://www
 Register for your own app key here: [Request a Key](http://www.eventbrite.com/api/key/)
 
 
-API Inconsistencies:
+API Gotchas:
 --------------------
 
-A list of sticking points for anyone attempting their own integration with EventBrite:
+A list of sticking points for anyone attempting their own integration with the EventBrite API:
 
 __/get => /update variable inconsistencies__
 
@@ -58,8 +58,8 @@ __Fields you can't edit__
 
 __Documentation errors__
 
-* /venue_update does not throw an error if "venue" is invalid. 
-* Dates are not strictly ISO 8601 (ISO 8601 specifies a "T", not a space, between date and time)
+* /venue_update does not throw an error if "venue" is invalid (or empty). 
+* Dates are not technically ISO 8601 (ISO 8601 specifies a "T", not a space, between date and time)
 
 __Other gotchas__
 
