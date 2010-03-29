@@ -18,10 +18,11 @@ module EventBright
       @id = hash.delete(:id)
       @organizer = Organizer.new(owner, hash.delete('organizer')) if hash['organizer']
       @venue = Venue.new(owner, hash.delete('venue')) if hash['venue']
-      tickets = hash.delete('tickets') if hash['tickets']
+      tickets = hash.delete('tickets')
       init_with_hash(hash)
       @owner = owner
-      @dirty_organizer = @dirty_venue = false
+      @tickets = TicketCollection.new(@owner, tickets, "name", self) if tickets
+      @dirty_organizer = @dirty_venue = @dirty_tickets = false
     end
     
     def privacy
@@ -33,6 +34,14 @@ module EventBright
       end
       @privacy
     end
+    
+    def owner
+      @owner
+    end
+    
+    def start_date=(date);    start_sales   = Time.parse(date);  end
+    def end_date=(date);      end_sales     = Time.parse(date);  end
+    
     
     def currency
       @currency ||= "USD"
@@ -93,8 +102,22 @@ module EventBright
         EventBright.call(:event_new, opts)
       end
       self.id = call["process"]["id"] unless loaded?
+      @tickets.save if @dirty_tickets
       @dirty = {}
       call
+    end
+    
+    def dirty_tickets!
+      @dirty_tickets = true
+    end
+    
+    def tickets
+      return @tickets if @tickets && !@dirty_tickets
+      response = EventBright.call(:event_get, {:user => @owner, :id => @id})
+      # EventBrite creates blank venues on occassion. No point in showing them.
+      @tickets = TicketCollection.new(@owner, response["event"]["tickets"], "name", self)
+      @dirty_tickets = false
+      @tickets
     end
     
   end
