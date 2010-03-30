@@ -2,6 +2,8 @@ require 'tzinfo'
 require 'eventbright/api_objects/organizer'
 require 'eventbright/api_objects/venue'
 require 'eventbright/api_objects/ticket'
+require 'eventbright/api_objects/organizer'
+require 'eventbright/api_objects/discount'
 module EventBright
   class Event < EventBright::ApiObject
 
@@ -17,6 +19,8 @@ module EventBright
     updatable :venue_id, :organizer_id
     readable :category
     reformats :privacy, :timezone, :start_date, :end_date
+    
+    requires :title
     ignores :organizer, :venue, :tickets
     renames :id => :event_id
     attr_accessor :organizer, :venue
@@ -24,6 +28,7 @@ module EventBright
     has :organizer => EventBright::Organizer
     has :venue => EventBright::Venue
     collection :tickets => EventBright::TicketCollection
+    collection :discounts => EventBright::DiscountCollection
     
     def privacy
       case attribute_get(:privacy)
@@ -56,6 +61,9 @@ module EventBright
       !private?
     end
     
+    def unnest_child_response(response)
+      response.has_key?('event') ? response['event'] : response
+    end
     
     def after_new
       @owner.dirty_events!

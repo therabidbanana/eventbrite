@@ -37,6 +37,10 @@ module EventBright
       (["1", 1, "y", "Y"].include? attribute_get(:hide)) ? "y" : "n"
     end
     
+    def new_hash
+      {:event_id => @event.id}
+    end
+    
     def after_new
       @event.dirty_tickets!
     end

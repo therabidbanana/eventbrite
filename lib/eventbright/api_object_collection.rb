@@ -23,9 +23,10 @@ module EventBright
     
     def initialize(owner = false, hash_array = [], parent = false)
       @owner = owner
-      arr = hash_array.map{|v| v[self.class.singlet_name]}
-      # arr = arr.reject{|v| v[reject_if_empty] == ""} if reject_if_empty
+      arr = hash_array.map{|v| v[self.class.singlet_name]} unless hash_array.nil?
+      arr = [] if hash_array.nil?
       @array = arr.map{|v| self.class.collection_for.new(owner, v)}
+      @array = @array.reject{|v| v.__send__(self.class.collection_for.requires.first) == ""} unless self.class.collection_for.requires.empty?
     end
     
     def inspect

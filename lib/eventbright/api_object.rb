@@ -126,11 +126,19 @@ module EventBright
     def collection_get(key);  
       return @collections[key] unless @collections[key].nil? || collection_dirty?(key)
       klass = self.class.collections[key]
-      response = EventBright.call(klass.getter, nested_hash)
-      response = unnest_child_response(response)
-      c = collection_set(key, klass.new(owner, response[klass.plural_name], self))
+      begin
+        response = EventBright.call(klass.getter, nested_hash)
+        response = unnest_child_response(response)
+        c = klass.new(owner, response[klass.plural_name], self)
+      rescue EventBright::Error => e
+        if e.type == "Not Found" || e.type == "Discount error"
+          c = klass.new(owner, nil, self) 
+        else
+          raise e
+        end
+      end
       collection_clean!(key)
-      c
+      collection_set(key, c, self)
     end
     
     
@@ -250,11 +258,13 @@ module EventBright
       opts = relations_save(opts)
       opts = before_save(opts)
       call = if loaded?
-        EventBright.call("#{self.class.singlet_name}_update", prep_api_hash('update', opts))
+        c = EventBright.call("#{self.class.singlet_name}_update", prep_api_hash('update', opts))
         after_update
+        c
       else
-        EventBright.call("#{self.class.singlet_name}_new", prep_api_hash('new', opts))
+        c = EventBright.call("#{self.class.singlet_name}_new", prep_api_hash('new', opts))
         after_new
+        c
       end
       self.id = call["process"]["id"] unless loaded?
       collections_save
@@ -273,7 +283,7 @@ module EventBright
     end
     
     def collections_save
-      for col in self.class.collections
+      self.class.collections.each do |col, klass|
         collection_get(col).save if collection_get(col)
       end
     end

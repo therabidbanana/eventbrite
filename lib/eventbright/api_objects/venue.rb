@@ -7,6 +7,7 @@ module EventBright
     updatable :city, :region, :postal_code 
     updatable :country, :country_code
     readable :latitude, :longitude
+    requires :name
     renames :name => :venue, :address => :adress, :address_2 => :adress_2
     ignores :"Lat-Long"
     

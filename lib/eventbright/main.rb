@@ -49,7 +49,7 @@ module EventBright
     def self.do_post(function, opts = {})
       response = post(function, opts)
       if response["error"]
-        raise Error.new(response["error"]["error_message"])
+        raise Error.new(response["error"]["error_message"], response["error"]["error_type"], response)
       end
       response
     end

@@ -23,6 +23,7 @@ Known Bugs
 ----------
 
 1. This library's testing coverage is almost zero. I'm working on it.
+2. There is no subuser support.
 
 A Note About App Keys
 ---------------------
