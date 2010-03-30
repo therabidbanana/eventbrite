@@ -2,31 +2,56 @@ require 'httparty'
 require 'eventbright/helpers'
 
 module EventBright
-  include HTTParty
-  base_uri "https://www.eventbrite.com/json/" 
-  
+  EVENTBRITE_TIME_STRING = '%Y-%m-%d %H:%M:%S'
   def self.setup(app_key = "YmRmMmMxMjYzNDYy", debug = false)
     @app_key = app_key
     @debug = debug
   end
   
-  def self.call(function, opts = {}, debug = true)
+  def self.debug!
+    @debug = true
+  end
+  
+  def self.call(function, opts = {})
     @app_key ||= "YmRmMmMxMjYzNDYy"
-    debug ||= debug?
     opts[:app_key] = @app_key
-    if opts[:user].is_a? EventBright::User
+    if opts[:user].is_a? EventBright::User 
+      # Allow passing User object instead of user auth info.
       u = opts.delete :user
       opts.merge!(u.auth)
-    end # Allow passing User object instead of user auth info.
-    response = get("/#{function}", :query => opts)
-    if response["error"]
-      raise Error.new(response["error"]["error_message"])
-    end
-    puts "Response for /#{function} : #{response.inspect[0..80]}..." if debug
+    end 
+    response = API.do_post("/#{function}", :body => opts)
+    debug "Response for /#{function} : #{response.inspect}..."
     response
   end
   
+  
+  def self.debug(msg)
+    puts msg if debug?
+  end
+  
   def self.debug?
-    @debug.nil? ? @debug : false
+    @debug.nil? ? false : @debug
+  end
+  
+  def self.formatted_time(date)
+    case date
+    when Time
+      date.strftime(EVENTBRITE_TIME_STRING)
+    when String
+      Time.parse(String).strftime(EVENTBRITE_TIME_STRING)
+    end
+  end
+  
+  class API
+    include HTTParty
+    base_uri "https://www.eventbrite.com/json/"
+    def self.do_post(function, opts = {})
+      response = post(function, opts)
+      if response["error"]
+        raise Error.new(response["error"]["error_message"])
+      end
+      response
+    end
   end
 end

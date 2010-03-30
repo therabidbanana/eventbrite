@@ -6,10 +6,10 @@ module EventBright
     updatable :address, :address_2 
     updatable :city, :region, :postal_code 
     updatable :country, :country_code
-    attr_accessor :latitude, :longitude
+    readable :latitude, :longitude
     def initialize(owner = user, hash = {})
       @id = hash.delete(:id)
-      hash.delete('Lat-Long')
+      hash.delete('Lat-Long') # Trash the Lat-Long. We don't care.
       init_with_hash(hash)
       @owner = owner
     end
@@ -32,7 +32,7 @@ module EventBright
       call
     end
     
-    def state;        @region;      end    # Region is same as state in US
+    def state;        region;       end    # Region is same as state in US
     def state=(val);  region= val;  end    # Region is same as state in US
   end
   class VenueCollection < ApiObjectCollection; collection_for Venue; end

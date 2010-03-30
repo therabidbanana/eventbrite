@@ -2,7 +2,7 @@ module EventBright
   class Organizer < EventBright::ApiObject
 
     updatable :name, :description
-    attr_accessor :url
+    readable :url
     def initialize(owner = user, hash = {})
       @id = hash.delete(:id)
       init_with_hash(hash)

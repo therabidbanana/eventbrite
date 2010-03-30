@@ -2,32 +2,30 @@ module EventBright
   class User < EventBright::ApiObject
     
     updatable :email, :password
-    attr_accessor :user_key
-    attr_accessor :first_name, :last_name
-    attr_accessor :date_created, :date_modified 
-    def initialize(user, hash = {})
+    readable :user_key
+    readable :first_name, :last_name
+    readable_date :date_created, :date_modified
+    remap :user_id => :id
+    def initialize(user, no_load = false)
       case user
       when Array
-        @email, @password = user
+        email, password = user
+        attribute_set(:email, email, true)
+        attribute_set(:password, password, true)
       else
-        @user_key = user
+        attribute_set(:user_key, user, true)
       end
       @events = @venues = @organizers = []
       @dirty_events = @dirty_venues = @dirty_organizers = true
-      load
+      load unless no_load
     end
     
-    def date_created=(date);  @date_created  = Time.parse(date);  end
-    def date_modified=(date); @date_modified = Time.parse(date);  end
-    def user_id=(new_id);     @id = new_id.to_int;                end
-    def user_id; @id; end
-    
     def load(hash = {})
-      if hash.empty?
+      if hash.nil? || hash.size == 0
         response = EventBright.call(:user_get, {:user => self})
         hash = response["user"]
       end
-      unless hash.empty?
+      unless hash.nil? || hash.size == 0
         init_with_hash(hash, ['subusers'])
       end
     end
@@ -35,7 +33,7 @@ module EventBright
     # Save updated email or password
     def save
       opts = {:user => self}
-      opts.merge!{update_hash}
+      opts.merge!(update_hash)
       EventBright.call(:user_update, opts)
     end
     
@@ -79,7 +77,7 @@ module EventBright
     end
     
     def auth
-      @user_key ? {'user_key' => @user_key} : {'user' => @email, 'password' => @password} 
+      attribute_get(:user_key) ? {'user_key' => attribute_get(:user_key)} : {'user' => attribute_get(:email), 'password' => attribute_get(:password)} 
     end
     
   end

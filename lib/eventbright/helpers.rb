@@ -3,16 +3,44 @@ module EventBright
     attr_accessor :id
     def self.updatable(*args)
       args.each{|symbol|
-        module_eval( "def #{symbol}(); @#{symbol};  end")
-        module_eval( "def #{symbol}=(val); attribute_set(:#{symbol}, val); end")
+        module_eval( "def #{symbol}(); attribute_get(:#{symbol});  end")
+        module_eval( "def #{symbol}=(val, no_dirty = false); attribute_set(:#{symbol}, val, no_dirty); end")
+      }
+    end
+    
+    def self.readable(*args)
+      args.each{|symbol|
+        
+        module_eval( "def #{symbol}(); attribute_get(:#{symbol}); end")
+        module_eval( "def #{symbol}=(val, no_dirty = false); attribute_set(:#{symbol}, val, true); end")
+      }
+    end
+    
+    def self.updatable_date(*args)
+      args.each{|symbol|
+        
+        module_eval( "def #{symbol}(); EventBright.formatted_time(attribute_get(:#{symbol})); end")
+        module_eval( "def #{symbol}=(val, no_dirty = false); attribute_set(:#{symbol}, Time.parse(val), no_dirty); end")
+      }
+    end
+    
+    def self.readable_date(*args)
+      args.each{|symbol|
+        
+        module_eval( "def #{symbol}(); EventBright.formatted_time(attribute_get(:#{symbol})); end")
+        module_eval( "def #{symbol}=(val, no_dirty = false); attribute_set(:#{symbol}, Time.parse(val), true); end")
       }
     end
     
     def self.remap(args = {})
       args.each{|k,v|
         module_eval( "def #{k}(); #{v};  end")
-        module_eval( "def #{k}=(val); #{v} = val; end")
+        module_eval( "def #{k}=(val,no_dirty = false); self.__send__('#{v}=', val, no_dirty); end")
       }
+    end
+    
+    def attribute_get(key)
+      @attributes[key]
     end
     
     def attribute_set(key, val, no_dirty = false)
@@ -30,7 +58,7 @@ module EventBright
     def id
       @id
     end
-    def id=(new_id)
+    def id=(new_id,*args)
       @id = new_id.to_int
     end
     
@@ -61,7 +89,7 @@ module EventBright
     end
     
     def dirty?
-      @dirty.size > 0 || !loaded?
+      @dirty.nil? || @dirty.size > 0 || !loaded?
     end
   end
   
@@ -94,7 +122,14 @@ module EventBright
     
     def save
       @array.each do |a|
-        a.save
+        a.save if a.dirty?
+      end
+    end
+    
+    def dirty?
+      is_dirty = false
+      @array.each do |a|
+        is_dirty = true if a.dirty?
       end
     end
     
