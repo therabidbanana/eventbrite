@@ -22,7 +22,7 @@ Example:
 Known Bugs
 ----------
 
-1. This library has no specs. I tested everything in IRB. :(
+1. This library's testing coverage is almost zero. I'm working on it.
 
 A Note About App Keys
 ---------------------
