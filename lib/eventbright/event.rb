@@ -13,16 +13,23 @@ module EventBright
     updatable :currency
     updatable :venue_id, :organizer_id
     readable :category
+    reformats :privacy, :timezone, :start_date, :end_date
+    ignores :organizer, :venue, :tickets
+    renames :id => :event_id
     attr_accessor :organizer, :venue
+    
     def initialize(owner = user, hash = {})
       @id = hash.delete(:id)
+      @owner = owner
+      load(hash, true)
+      @dirty_organizer = @dirty_venue = @dirty_tickets = false
+    end
+    
+    def after_load(hash = {})
       @organizer = Organizer.new(owner, hash.delete('organizer')) if hash['organizer']
       @venue = Venue.new(owner, hash.delete('venue')) if hash['venue']
       tickets = hash.delete('tickets')
-      init_with_hash(hash)
-      @owner = owner
       @tickets = TicketCollection.new(@owner, tickets, "name", self) if tickets
-      @dirty_organizer = @dirty_venue = @dirty_tickets = false
     end
     
     def privacy
@@ -33,10 +40,6 @@ module EventBright
         attribute_set(:privacy, 1)
       end
       attribute_get(:privacy)
-    end
-    
-    def owner
-      @owner
     end
         
     def currency
@@ -70,44 +73,16 @@ module EventBright
       !private?
     end
     
-    def load(hash = {})
-      if hash.empty?
-        response = EventBright.call(:event_get, {:user => @owner, :id => @id})
-        hash = response["event"]
-      end
-      unless hash.empty?
-        @organizer = Organizer.new(@owner, hash.delete('organizer')) if hash['organizer']
-        @venue = Venue.new(@owner, hash.delete('venue')) if hash['venue']
-        init_with_hash(hash, ['tickets'])
-        @tickets = TicketCollection.new(@owner, hash['tickets'], "name", self) if hash['tickets']
-      end
-    end
-    
-    def save
-      opts = {:user => @owner}
-      opts.merge!(update_hash)
-      opts[:privacy] = privacy if opts[:privacy]      # Fix privacy formatting
-      opts[:timezone] = timezone if opts[:timezone]   # Fix Timezone formatting
-      opts[:start_date] = start_date if opts[:start_date] # Fix Date formatting
-      opts[:end_date] = end_date if opts[:end_date]       # Fix date formatting
+    def before_save(opts = {})
       @organizer.save if @organzier && @organizer.dirty?
       @venue.save if @venue && @venue.dirty?
       opts[:organizer_id] = @organizer.id if @dirty_organizer
       opts[:venue_id] = @venue.id if @dirty_venue
-      call = if loaded?
-        opts.merge! :event_id => @id  # Another api inconsistency... how suprising
-        EventBright.call(:event_update, opts)
-      else
-        @owner.dirty_events!
-        EventBright.call(:event_new, opts)
-      end
-      unless loaded?
-        self.id = call["process"]["id"]
-        self.load # Make sure we're fully up-to-date
-      end
-      @tickets.save if @dirty_tickets
-      @dirty = {}
-      call
+      opts
+    end
+    
+    def after_new
+      @owner.dirty_events!
     end
     
     def dirty_tickets!

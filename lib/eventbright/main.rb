@@ -20,8 +20,9 @@ module EventBright
       u = opts.delete :user
       opts.merge!(u.auth)
     end 
+    debug "\tSending  /#{function}\t\t(#{opts.inspect})"
     response = API.do_post("/#{function}", :body => opts)
-    debug "Response for /#{function} : #{response.inspect}..."
+    debug "\tResponse /#{function}\t\t#{response.inspect}"
     response
   end
   

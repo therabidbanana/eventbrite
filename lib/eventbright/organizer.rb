@@ -5,23 +5,12 @@ module EventBright
     readable :url
     def initialize(owner = user, hash = {})
       @id = hash.delete(:id)
-      init_with_hash(hash)
+      init_with_hash(hash, true)
       @owner = owner
     end
     
-    def save
-      opts = {:user => @owner}
-      opts.merge!(update_hash)
-      call = if loaded?
-        opts.merge! :id => @id
-        EventBright.call(:organizer_update, opts)
-      else
-        @owner.dirty_organizers!
-        EventBright.call(:organizer_new, opts)
-      end
-      self.id = call["process"]["id"] unless loaded?
-      @dirty = {}
-      call
+    def after_new
+      @owner.dirty_organizers!
     end
     
   end

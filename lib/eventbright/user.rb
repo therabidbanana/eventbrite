@@ -6,6 +6,7 @@ module EventBright
     readable :first_name, :last_name
     readable_date :date_created, :date_modified
     remap :user_id => :id
+    ignores ['subusers']
     def initialize(user, no_load = false)
       case user
       when Array
@@ -17,24 +18,11 @@ module EventBright
       end
       @events = @venues = @organizers = []
       @dirty_events = @dirty_venues = @dirty_organizers = true
-      load unless no_load
+      load! unless no_load
     end
     
-    def load(hash = {})
-      if hash.nil? || hash.size == 0
-        response = EventBright.call(:user_get, {:user => self})
-        hash = response["user"]
-      end
-      unless hash.nil? || hash.size == 0
-        init_with_hash(hash, ['subusers'])
-      end
-    end
-    
-    # Save updated email or password
-    def save
-      opts = {:user => self}
-      opts.merge!(update_hash)
-      EventBright.call(:user_update, opts)
+    def prep_api_hash(method = 'get', hash = {})
+      {:user => self}
     end
     
     def venues

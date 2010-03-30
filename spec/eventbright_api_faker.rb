@@ -6,7 +6,7 @@ def fake_response_with(call, opts)
       string << line
     end
   end
-  HTTParty::Response.new(HTTParty::Parser.call(string, "text/json"), string, 200, "")
+  HTTParty::Response.new(HTTParty::Parser.call(string, :json), string, 200, "")
 end
 
 def fake_response(call)
@@ -16,7 +16,7 @@ def fake_response(call)
       string << line
     end
   end
-  HTTParty::Response.new(HTTParty::Parser.call(string, "text/json"), "", 200, "")
+  HTTParty::Response.new(HTTParty::Parser.call(string, :json), string, 200, "")
 end
 
 def call_requires_auth?(call)
@@ -29,7 +29,7 @@ end
 module EventBright
   class API
     def self.do_post(string, opts = {})
-      fake_response_with(string, opts)
+      fake_response(string)
     end
   end
 end
