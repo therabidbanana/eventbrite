@@ -1,5 +1,4 @@
 require 'httparty'
-require 'eventbright/helpers'
 
 module EventBright
   EVENTBRITE_TIME_STRING = '%Y-%m-%d %H:%M:%S'

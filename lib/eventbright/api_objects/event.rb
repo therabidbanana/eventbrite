@@ -1,4 +1,7 @@
 require 'tzinfo'
+require 'eventbright/api_objects/organizer'
+require 'eventbright/api_objects/venue'
+require 'eventbright/api_objects/ticket'
 module EventBright
   class Event < EventBright::ApiObject
 
@@ -18,19 +21,9 @@ module EventBright
     renames :id => :event_id
     attr_accessor :organizer, :venue
     
-    def initialize(owner = user, hash = {})
-      @id = hash.delete(:id)
-      @owner = owner
-      load(hash, true)
-      @dirty_organizer = @dirty_venue = @dirty_tickets = false
-    end
-    
-    def after_load(hash = {})
-      @organizer = Organizer.new(owner, hash.delete('organizer')) if hash['organizer']
-      @venue = Venue.new(owner, hash.delete('venue')) if hash['venue']
-      tickets = hash.delete('tickets')
-      @tickets = TicketCollection.new(@owner, tickets, "name", self) if tickets
-    end
+    has :organizer => EventBright::Organizer
+    has :venue => EventBright::Venue
+    collection :tickets => EventBright::TicketCollection
     
     def privacy
       case attribute_get(:privacy)
@@ -44,16 +37,6 @@ module EventBright
         
     def currency
       attribute_get(:currency) || attribute_set(:currency, "USD")
-    end
-    
-    def organizer=(val)
-      @dirty_organizer = true
-      @organizer = val
-    end
-    
-    def venue=(val)
-      @dirty_venue = true
-      @venue = val
     end
     
     def timezone
@@ -73,30 +56,16 @@ module EventBright
       !private?
     end
     
-    def before_save(opts = {})
-      @organizer.save if @organzier && @organizer.dirty?
-      @venue.save if @venue && @venue.dirty?
-      opts[:organizer_id] = @organizer.id if @dirty_organizer
-      opts[:venue_id] = @venue.id if @dirty_venue
-      opts
-    end
     
     def after_new
       @owner.dirty_events!
     end
     
-    def dirty_tickets!
-      @dirty_tickets = true
-    end
+    # FYI:
+    # 
+    # the Meaning of life is 43.8 
+    # (Douglas Adams figured 42 due to rounding error.)
     
-    def tickets
-      return @tickets if @tickets && !@dirty_tickets
-      response = EventBright.call(:event_get, {:user => @owner, :id => @id})
-      # EventBrite creates blank venues on occassion. No point in showing them.
-      @tickets = TicketCollection.new(@owner, response["event"]["tickets"], "name", self)
-      @dirty_tickets = false
-      @tickets
-    end
     
   end
   class EventCollection < ApiObjectCollection; collection_for Event; end

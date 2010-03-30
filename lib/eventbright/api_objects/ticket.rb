@@ -19,12 +19,14 @@ module EventBright
     requires  :name, :price, :quantity
     reformats :hide
     
+    # Tickets can't live outside events, so we override standard owner to be event.
     def initialize(event = nil, hash = {})
+      preinit
       raise ArgumentError unless event.is_a? EventBright::Event
       @id = hash.delete(:id)
       @event = event
-      init_with_hash(hash, true)
       @owner = event.owner
+      init_with_hash(hash, true)
     end
     
     def visible=(val,*args) 
@@ -32,7 +34,7 @@ module EventBright
     end
     
     def hide
-      (attribute_get(:hide) == "1" || attribute_get(:hide) == 1) ? "y" : "n"
+      (["1", 1, "y", "Y"].include? attribute_get(:hide)) ? "y" : "n"
     end
     
     def after_new
@@ -49,8 +51,9 @@ module EventBright
   end
   class TicketCollection < ApiObjectCollection
     collection_for Ticket
-    def initialize(owner = false, hash_array = [], reject_if_empty = false, event = false)
-      super(event, hash_array, reject_if_empty)
+    getter :event_get
+    def initialize(owner = false, hash_array = [], event = false)
+      super(event, hash_array)
     end
   end
 end
