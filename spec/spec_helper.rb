@@ -10,3 +10,22 @@ Spec::Runner.configure do |config|
   
 end
 
+module EventBright
+  class Banana < ApiObject; readable :val; end
+  class BananaBunch < ApiObjectCollection
+    collection_for Banana
+  end
+  class Brady < ApiObject; readable :foo, :bar; requires :foo; end
+  class BradyBunch < ApiObjectCollection
+    collection_for Brady
+    singlet_name "bob"
+    plural_name "joe"
+    getter :foo_bar_baz
+  end
+  class Foo < ApiObject
+  end
+  class Bar < ApiObject
+    singlet_name "baz"
+    plural_name "bazzes"
+  end
+end

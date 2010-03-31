@@ -1,105 +1,10 @@
+require 'eventbright/api_object_class_methods'
 module EventBright
   class ApiObject
-    attr_accessor :id, :owner, :attributes, :dirty, :dirty_collections
-    class << self
-      def singlet_name(name = false)
-        @singlet_name = name if name
-        @singlet_name || self.to_s.gsub('EventBright::', '').downcase
-      end
-    
-      def plural_name(name = false)
-        @plural_name || "#{self.singlet_name}s"
-      end
-    
-      def ignores(*args)
-        @ignores = args unless args.empty?
-        @ignores || []
-      end
-      
-      def requires(*args)
-        @requires = args unless args.empty?
-        @requires || []
-      end
-      
-      
-      def reformats(*args)
-        @reformats = args unless args.empty?
-        @reformats || []
-      end
-      
-      
-      def renames(attrs = false)
-        @reformats = attrs if attrs
-        @reformats || {}
-      end
-    
-      def updatable(*args)
-        args.each{|symbol|
-          module_eval( "def #{symbol}(); attribute_get(:#{symbol});  end")
-          module_eval( "def #{symbol}=(val, no_dirty = false); attribute_set(:#{symbol}, val, no_dirty); end")
-        }
-      end
-    
-      def readable(*args)
-        args.each{|symbol|
-        
-          module_eval( "def #{symbol}(); attribute_get(:#{symbol}); end")
-          module_eval( "def #{symbol}=(val, no_dirty = false); attribute_set(:#{symbol}, val, true); end")
-        }
-      end
-    
-      def updatable_date(*args)
-        args.each{|symbol|
-        
-          module_eval( "def #{symbol}(); EventBright.formatted_time(attribute_get(:#{symbol})); end")
-          module_eval( "def #{symbol}=(val, no_dirty = false); attribute_set(:#{symbol}, Time.parse(val), no_dirty); end")
-        }
-      end
-    
-      def readable_date(*args)
-        args.each{|symbol|
-        
-          module_eval( "def #{symbol}(); EventBright.formatted_time(attribute_get(:#{symbol})); end")
-          module_eval( "def #{symbol}=(val, no_dirty = false); attribute_set(:#{symbol}, Time.parse(val), true); end")
-        }
-      end
-    
-      def remap(args = {})
-        args.each{|k,v|
-          module_eval( "def #{k}(); #{v};  end")
-          module_eval( "def #{k}=(val,no_dirty = false); self.__send__('#{v}=', val, no_dirty); end")
-        }
-      end
-      
-      def has(args = {})
-        @class_relations ||= {}
-        args.each{|symbol, klass|
-          module_eval( "def #{symbol}(); relation_get(:#{symbol});  end")
-          module_eval( "def dirty_#{symbol}!(); relation_dirty!(:#{symbol});  end")
-          module_eval( "def dirty_#{symbol}?(); relation_dirty?(:#{symbol});  end")
-          module_eval( "def #{symbol}=(val, no_dirty = false); relation_set(:#{symbol}, val, no_dirty); end")
-          @class_relations[symbol] = klass
-        }
-      end
-      def relations
-        @class_relations || {}
-      end
-      
-      def collection(args = {})
-        @class_collections ||= {}
-        args.each{|symbol, klass|
-          module_eval( "def #{symbol}(); collection_get(:#{symbol});  end")
-          module_eval( "def dirty_#{symbol}!(); collection_dirty!(:#{symbol});  end")
-          module_eval( "def dirty_#{symbol}?(); collection_dirty?(:#{symbol});  end")
-          module_eval( "def #{symbol}=(val, no_dirty = false); collection_set(:#{symbol}, val, no_dirty); end")
-          @class_collections[symbol] = klass
-        }
-      end
-      def collections
-        @class_collections || {}
-      end
-
-    end # End Class Methods
+    extend EventBright::ApiObjectClassMethods
+    attr_accessor :id, :owner
+    attr_accessor :attributes, :relations, :collections
+    attr_accessor :dirty, :dirty_relations, :dirty_collections
     
     def initialize(owner = false, hash = {})
       preinit
@@ -315,6 +220,9 @@ module EventBright
       "#<#{self.class.to_s}:#{self.id} @attributes=#{@attributes.inspect}>"
     end
     
+    def to_s
+      "#<#{self.class.to_s}:#{self.id} @attributes=#{@attributes.inspect}>"
+    end
     
     # Defines whether the object has been loaded from a remote source. If not, then
     # we assume it's new when saving.
