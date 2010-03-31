@@ -22,14 +22,17 @@ module EventBright
       @requires
     end
     
-    
+    # Columns to reformat when sending outgoing data
+    # (Reformatting is assumed to be done by calling the method with the
+    # same name as the attribute, so to reformat foo, use def foo... with 
+    # an attribute_get inside)
     def reformats(*args)
       @reformats ||= []
       @reformats.concat(args) unless args.empty?
       @reformats
     end
     
-    
+    # Columns to rename when sending outgoing data
     def renames(attrs = false)
       @renames ||= {}
       @renames.merge!(attrs) if attrs
@@ -66,7 +69,13 @@ module EventBright
         module_eval( "def #{symbol}=(val, no_dirty = false); attribute_set(:#{symbol}, Time.parse(val), true); end")
       }
     end
-  
+    
+    # Columns that are the same as other columns. This is mainly useful
+    # for incoming data with inconsistent naming. Args are passed as a hash,
+    # where the key is the new method name, and the value is the target method name
+    # you are mapping the new one onto. Note that this  means there is only the original
+    # one stored on the object. Also note this is different from the 
+    # renames list, which is exclusively for outgoing hashes sent to the API.
     def remap(args = {})
       args.each{|k,v|
         module_eval( "def #{k}(); #{v};  end")
@@ -74,6 +83,7 @@ module EventBright
       }
     end
     
+    # Defines a has 1 relation
     def has(args = {})
       @class_relations ||= {}
       args.each{|symbol, klass|
@@ -88,6 +98,7 @@ module EventBright
       @class_relations || {}
     end
     
+    # Defines a has may relation
     def collection(args = {})
       @class_collections ||= {}
       args.each{|symbol, klass|

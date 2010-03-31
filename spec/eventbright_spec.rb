@@ -28,5 +28,9 @@ describe EventBright do
     EventBright.call(:user_get, :user => EventBright::User.new("fake_key", true))
   end
   
-  
+  it "should format time according to eventbright's wrong iso8601" do
+    a = "2010-04-01 13:37:00"
+    b = Time.parse("4/1/2010 13:37")
+    a.should == EventBright.formatted_time(b)
+  end
 end

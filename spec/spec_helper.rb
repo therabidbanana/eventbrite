@@ -27,5 +27,7 @@ module EventBright
   class Bar < ApiObject
     singlet_name "baz"
     plural_name "bazzes"
+    readable :foo
+    updatable :bar, :baz
   end
 end
