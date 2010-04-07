@@ -1,3 +1,4 @@
+require 'eventbright/api_objects/ticket'
 module EventBright
   
   class Attendee < ApiObject
@@ -19,7 +20,7 @@ module EventBright
     readable :affiliate # Doc error - affiliate?
     ignores :answers
     
-    remap :ticket_id => :id
+    readable :ticket_id
     attr_accessor :event
     
     
