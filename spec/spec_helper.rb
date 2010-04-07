@@ -29,5 +29,7 @@ module EventBright
     plural_name "bazzes"
     readable :foo
     updatable :bar, :baz
+    has :banana => EventBright::Banana
+    collection :bananas => EventBright::BananaBunch
   end
 end

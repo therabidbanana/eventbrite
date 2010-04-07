@@ -28,6 +28,7 @@ module EventBright
     has :organizer => EventBright::Organizer
     has :venue => EventBright::Venue
     collection :tickets => EventBright::TicketCollection
+    collection :attendees => EventBright::AttendeeCollection
     collection :discounts => EventBright::DiscountCollection
     
     def privacy
@@ -69,11 +70,9 @@ module EventBright
       @owner.dirty_events!
     end
     
-    # FYI:
-    # 
-    # the Meaning of life is 43.8 
-    # (Douglas Adams figured 42 due to rounding error.)
-    
+    def nested_hash
+      {:id => id, :count => 99999, :user => owner} # It's over 9000!
+    end
     
   end
   class EventCollection < ApiObjectCollection; collection_for Event; end
