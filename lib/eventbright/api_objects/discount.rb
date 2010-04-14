@@ -22,7 +22,7 @@ module EventBright
     end
     
     def discount_id=(val, no_dirty = false)
-      id = val
+      self.id = val
     end
     
     def new_hash
