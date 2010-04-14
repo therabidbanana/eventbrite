@@ -43,7 +43,7 @@ module EventBright
     
     
     def id=(new_id,*args)
-      @id = new_id.to_int
+      @id = new_id.to_i
     end
     
     def load(hash = {}, no_dirty = false)
