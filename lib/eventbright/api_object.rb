@@ -10,9 +10,9 @@ module EventBright
     
     def initialize(owner = false, hash = {})
       preinit
+      @owner = owner if owner
       unless hash.empty?
         @id = hash.delete(:id)
-        @owner = owner if owner
         load(hash, true)
         init
       end
