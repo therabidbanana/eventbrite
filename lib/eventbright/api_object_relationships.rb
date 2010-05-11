@@ -9,7 +9,7 @@ module EventBright
         response = unnest_child_response(response)
         c = klass.new(owner, response[klass.plural_name], self)
       rescue EventBright::Error => e
-        if e.type == "Not Found" || e.type == "Discount error"
+        if e.type == "Not Found" || e.type == "Discount error" || e.type == "Order error"
           c = klass.new(owner, nil, self) 
         else
           raise e
