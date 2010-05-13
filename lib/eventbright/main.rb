@@ -1,5 +1,5 @@
 require 'httparty'
-
+require 'tzinfo'
 module EventBright
   EVENTBRITE_TIME_STRING = '%Y-%m-%d %H:%M:%S'
   def self.setup(app_key = "YmRmMmMxMjYzNDYy", debug = false)

@@ -1,4 +1,3 @@
-require 'tzinfo'
 require 'eventbright/api_objects/organizer'
 require 'eventbright/api_objects/venue'
 require 'eventbright/api_objects/ticket'
