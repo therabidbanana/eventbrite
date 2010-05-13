@@ -85,6 +85,7 @@ Gem::Specification.new do |s|
   else
     s.add_dependency(%q<rspec>, [">= 1.2.9"])
     s.add_dependency(%q<httparty>, [">= 0.5.2"])
+    s.add_dependency(%q<tzinfo>, [">= 0.3.20"])
   end
 end
 
