@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{eventbright}
-  s.version = "0.1.5"
+  s.version = "0.1.6"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["David Haslem"]
-  s.date = %q{2010-05-11}
+  s.date = %q{2010-05-13}
   s.description = %q{A simple, unoffical gem that integrates with the EventBrite events service. (http://www.eventbrite.com)}
   s.email = %q{therabidbanana@gmail.com}
   s.extra_rdoc_files = [
@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
      "README.markdown",
      "Rakefile",
      "VERSION",
+     "eventbright.gemspec",
      "lib/eventbright.rb",
      "lib/eventbright/api_object.rb",
      "lib/eventbright/api_object_class_methods.rb",
@@ -80,12 +81,10 @@ Gem::Specification.new do |s|
     else
       s.add_dependency(%q<rspec>, [">= 1.2.9"])
       s.add_dependency(%q<httparty>, [">= 0.5.2"])
-      s.add_dependency(%q<tzinfo>, [">= 0.3.20"])
     end
   else
     s.add_dependency(%q<rspec>, [">= 1.2.9"])
     s.add_dependency(%q<httparty>, [">= 0.5.2"])
-    s.add_dependency(%q<tzinfo>, [">= 0.3.20"])
   end
 end
 
