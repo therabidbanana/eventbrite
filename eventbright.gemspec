@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{eventbright}
-  s.version = "0.1.6"
+  s.version = "0.1.7"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["David Haslem"]
-  s.date = %q{2010-05-13}
+  s.date = %q{2010-05-26}
   s.description = %q{A simple, unoffical gem that integrates with the EventBrite events service. (http://www.eventbrite.com)}
   s.email = %q{therabidbanana@gmail.com}
   s.extra_rdoc_files = [
