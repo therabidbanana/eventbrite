@@ -16,7 +16,7 @@ module EventBright
     updatable :box_header_background_color, :box_header_text_color 
     updatable :currency
     updatable :venue_id, :organizer_id
-    readable :category
+    readable :category, :num_attendee_rows
     reformats :privacy, :timezone, :start_date, :end_date
     
     requires :title
