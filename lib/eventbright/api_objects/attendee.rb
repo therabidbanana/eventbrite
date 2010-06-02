@@ -10,7 +10,7 @@ module EventBright
     readable :email
     readable :prefix, :first_name, :last_name, :suffix
     readable :home_address, :home_address_2, :home_city, :home_postal_code
-    readable :home_country_code, :home_country, :home_region, :home_phone
+    readable :home_country_code, :home_country, :home_region, :home_phone, :cell_phone
     readable :ship_address, :ship_address_2, :ship_city, :ship_postal_code
     readable :ship_country_code, :ship_country, :ship_region
     readable :work_address, :work_address_2, :work_city, :work_postal_code
@@ -19,7 +19,7 @@ module EventBright
     readable :age, :birth_date
     readable :affiliate # Doc error - affiliate?
     ignores :answers
-    ignores :event_id
+    readable :event_id
     
     readable :ticket_id
     attr_accessor :event
