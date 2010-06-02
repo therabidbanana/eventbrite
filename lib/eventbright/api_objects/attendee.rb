@@ -19,6 +19,7 @@ module EventBright
     readable :age, :birth_date
     readable :affiliate # Doc error - affiliate?
     ignores :answers
+    ignores :event_id
     
     readable :ticket_id
     attr_accessor :event
