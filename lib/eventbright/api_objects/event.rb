@@ -3,6 +3,7 @@ require 'eventbright/api_objects/venue'
 require 'eventbright/api_objects/ticket'
 require 'eventbright/api_objects/organizer'
 require 'eventbright/api_objects/discount'
+require 'eventbright/api_objects/attendee'
 module EventBright
   class Event < EventBright::ApiObject
 
