@@ -11,5 +11,7 @@ describe EventBright::ApiObject do
   describe "relationships" do
     it_should_behave_like "EventBright::ApiObject relationship methods"
   end
-  
+  it "should have an init with hash method" do
+    # Implement this
+  end
 end
