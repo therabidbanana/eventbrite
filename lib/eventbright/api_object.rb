@@ -69,7 +69,8 @@ module EventBright
                                                     self.class.relations.include?(k) ||
                                                     self.class.relations.include?(k.to_sym) ||
                                                     self.class.collections.include?(k) ||
-                                                    self.class.collections.include?(k.to_sym)
+                                                    self.class.collections.include?(k.to_sym) ||
+                                                    !self.respond_to?(k)
       end
     end
     
