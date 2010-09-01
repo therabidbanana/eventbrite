@@ -94,9 +94,9 @@ module EventBright
     # These are added to the updatable_hash, if appropriate
     # These are called by prep_api_hash
     def api_hash;     {:user => owner};  end
-    def update_hash;  {};                 end
-    def get_hash;     {};                 end
-    def new_hash;     {};                 end
+    def update_hash;  {:id => id};       end
+    def get_hash;     {:id => id};       end
+    def new_hash;     {};                end
     
     def nested_hash;  {:user => owner, :id => id}; end
     
