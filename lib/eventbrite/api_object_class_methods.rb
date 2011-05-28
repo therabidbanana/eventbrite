@@ -70,7 +70,7 @@ module Eventbrite
       args.each{|symbol|
       
         module_eval( "def #{symbol}(); Eventbrite.formatted_time(attribute_get(:#{symbol})); end")
-        module_eval( "def #{symbol}=(val, no_dirty = false); attribute_set(:#{symbol}, Time.parse(val), no_dirty); end")
+        module_eval( "def #{symbol}=(val, no_dirty = false); attribute_set(:#{symbol}, Time.parse(val), no_dirty) unless (val.nil? || val.empty?); end")
       }
     end
   
@@ -80,7 +80,7 @@ module Eventbrite
       args.each{|symbol|
       
         module_eval( "def #{symbol}(); Eventbrite.formatted_time(attribute_get(:#{symbol})); end")
-        module_eval( "def #{symbol}=(val, no_dirty = false); attribute_set(:#{symbol}, Time.parse(val), true); end")
+        module_eval( "def #{symbol}=(val, no_dirty = false); attribute_set(:#{symbol}, Time.parse(val), true) unless (val.nil? || val.empty?); end")
       }
     end
     
