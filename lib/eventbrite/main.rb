@@ -55,3 +55,5 @@ module Eventbrite
     end
   end
 end
+
+EventBright = Eventbrite
