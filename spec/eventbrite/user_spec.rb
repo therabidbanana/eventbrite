@@ -133,7 +133,7 @@ describe Eventbrite::User do
     u.dirty?.should be_true
     u.load!
     u.dirty?.should be_false
-    u.date_modified = "now"
+    u.date_modified = Time.now.to_s
     u.dirty?.should be_false
     u.email = "banana"
     u.dirty?.should be_true
