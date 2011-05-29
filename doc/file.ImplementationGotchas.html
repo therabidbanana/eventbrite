@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>
+  File: ImplementationGotchas
+  
+    &mdash; Documentation by YARD 0.7.1
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html" title="Index">Index</a> &raquo; 
+    <span class="title">File: ImplementationGotchas</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><div id='filecontents'><p>Eventbrite's API is very poorly done. I've catalogued a list of
+issues you'll likely encounter if you want to make your own integration with
+their API. Most of the code in this library exists simply to fix these
+issues - otherwise you could probably just use HTTParty directly.</p>
+
+<h2>API Gotchas </h2>
+
+<p>A list of sticking points for anyone attempting their own integration with the Eventbrite API:</p>
+
+<p><strong>/get => /update variable inconsistencies</strong></p>
+
+<ul>
+<li>event.id => event.event_id</li>
+<li>event.timezone (Olson format, ex: "US/Central") => event.timezone (GMT offset hours, ex: "GMT-05")</li>
+<li>event.privacy (String representing privacy "Private"|"Public") => event.privacy (Boolean 0 = public)</li>
+<li>event.url => event.personalized_url</li>
+<li>venue.address => venue.adress</li>
+<li>venue.address_2 => venue.adress_2</li>
+<li>venue.name => venue.venue</li>
+<li>event.tickets.ticket.start_date => ticket.start_sales</li>
+<li>event.tickets.ticket.end_date => ticket.end_sales</li>
+<li>event.tickets.ticket.visible (1 is visible) => ticket.hide (y is hidden, n is visible)</li>
+<li>event.tickets.ticket.quantity_available => ticket.quantity</li>
+</ul>
+
+
+<p><strong>Fields you can't edit</strong></p>
+
+<ul>
+<li>event.category</li>
+<li>event.tags</li>
+<li>event.logo</li>
+<li>ticket.hide (on /ticket_new. You must save the ticket then call /ticket_update to hide)</li>
+</ul>
+
+
+<p><strong>Documentation errors</strong></p>
+
+<ul>
+<li>/venue_new and /venue_update does not throw an error if "venue" is invalid/non-unique/empty.</li>
+<li>Dates are not technically ISO 8601 (ISO 8601 specifies a "T" - not a space - between date and time, so passing perfectly formatted ISO 8601 datetime strings such as those a standard library would provide will cause errors)</li>
+<li>Error description for event Privacy Error: <pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The privacy field must be equal to 0 (public) or 1 (private)</span><span class='tstring_end'>&quot;</span></span></pre> -> This is the opposite of the actual case. 0 is private and 1 is public, as described in other places within the API.</li>
+<li>/ticket_new and /ticket_update do not throw errors if quantity not set</li>
+</ul>
+
+
+<p><strong>Other gotchas</strong></p>
+
+<ul>
+<li>Venue object included in event has extra "Lat-Long" attribute, along with "latitude" and "longitude". If you're turning a result into an object, this might cause an error if you don't suspect it.</li>
+<li>Timezones are weird (nothing EventBrite can do about this one): GMT offset for timezones is always computed in standard time (don't adjust for Daylight Savings, unlike UTC offset). This weirdness means that once you save the timezone the Olson description might not match what you think it should (ex. US/Eastern becomes GMT-5 which then becomes America/Bogota)</li>
+</ul>
+
+</div></div>
+    
+    <div id="footer">
+  Generated on Sun May 29 14:17:29 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.1 (ruby-1.9.2).
+</div>
+
+  </body>
+</html>

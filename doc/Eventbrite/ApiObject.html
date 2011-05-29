@@ -355,235 +355,6 @@ Returns the value of attribute relations.
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#after_attribute_set-instance_method" title="#after_attribute_set (instance method)">- (Object) <strong>after_attribute_set</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#after_load-instance_method" title="#after_load (instance method)">- (Object) <strong>after_load</strong>(hash = {}) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>
-A callback for after loads.
-</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#after_new-instance_method" title="#after_new (instance method)">- (Object) <strong>after_new</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>
-After save callback, only called on a new call.
-</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#after_save-instance_method" title="#after_save (instance method)">- (Object) <strong>after_save</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>
-After save callback.
-</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#after_update-instance_method" title="#after_update (instance method)">- (Object) <strong>after_update</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>
-After save callback, only called on an update call.
-</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#api_hash-instance_method" title="#api_hash (instance method)">- (Object) <strong>api_hash</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>
-Callbacks for individual hash changes These are added to the
-updatable_hash, if appropriate These are called by prep_api_hash.
-</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#attribute_get-instance_method" title="#attribute_get (instance method)">- (Object) <strong>attribute_get</strong>(key) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#attribute_set-instance_method" title="#attribute_set (instance method)">- (Object) <strong>attribute_set</strong>(key, val, no_dirty = false) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#before_save-instance_method" title="#before_save (instance method)">- (Object) <strong>before_save</strong>(opts = {}) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>
-Callback that happens before saving.
-</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#clean%21-instance_method" title="#clean! (instance method)">- (Object) <strong>clean!</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#dirty%3F-instance_method" title="#dirty? (instance method)">- (Boolean) <strong>dirty?</strong> </a>
     
 
@@ -599,75 +370,9 @@ Callback that happens before saving.
   
     <span class="summary_desc"><div class='inline'><p>
 Something is dirty if it&#8217;s never been loaded or if the @dirty hash
-contains something.
+contains something (which happens when an attribute is changed).
 </p>
 </div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#get_hash-instance_method" title="#get_hash (instance method)">- (Object) <strong>get_hash</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#init-instance_method" title="#init (instance method)">- (Object) <strong>init</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>
-Callback after initialization.
-</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#init_with_hash-instance_method" title="#init_with_hash (instance method)">- (Object) <strong>init_with_hash</strong>(hash, no_dirty = false) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -701,27 +406,6 @@ A new instance of ApiObject.
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#inspect-instance_method" title="#inspect (instance method)">- (Object) <strong>inspect</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#load-instance_method" title="#load (instance method)">- (Object) <strong>load</strong>(hash = {}, no_dirty = false) </a>
     
 
@@ -735,7 +419,11 @@ A new instance of ApiObject.
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'><p>
+Loads attributes and relations from a hash,  or makes an API call to
+retrieve necessary data if load hash is empty.
+</p>
+</div></span>
   
 </li>
 
@@ -791,94 +479,6 @@ Defines whether the object has been loaded from a remote source.
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#nested_hash-instance_method" title="#nested_hash (instance method)">- (Object) <strong>nested_hash</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#new_hash-instance_method" title="#new_hash (instance method)">- (Object) <strong>new_hash</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#preinit-instance_method" title="#preinit (instance method)">- (Object) <strong>preinit</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#prep_api_hash-instance_method" title="#prep_api_hash (instance method)">- (Object) <strong>prep_api_hash</strong>(method = 'get', hash = {}) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>
-A callback for methods to clean up the hash a bit allowing subclasses to
-insert the user if necessary.
-</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#save-instance_method" title="#save (instance method)">- (Object) <strong>save</strong>(opts = {}) </a>
     
 
@@ -916,49 +516,10 @@ Save function.
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#updatable_hash-instance_method" title="#updatable_hash (instance method)">- (Object) <strong>updatable_hash</strong>(always_dirty = []) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#update_hash-instance_method" title="#update_hash (instance method)">- (Object) <strong>update_hash</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'><p>
+Returns a simple string representing the class and its attributes.
+</p>
+</div></span>
   
 </li>
 
@@ -974,19 +535,9 @@ Save function.
   
   
   
-  <h3 class="inherited">Methods included from <span class='object_link'><a href="ApiObjectClassMethods.html" title="Eventbrite::ApiObjectClassMethods (module)">ApiObjectClassMethods</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="ApiObjectClassMethods.html#collection-instance_method" title="Eventbrite::ApiObjectClassMethods#collection (method)">collection</a></span>, <span class='object_link'><a href="ApiObjectClassMethods.html#has-instance_method" title="Eventbrite::ApiObjectClassMethods#has (method)">has</a></span>, <span class='object_link'><a href="ApiObjectClassMethods.html#ignores-instance_method" title="Eventbrite::ApiObjectClassMethods#ignores (method)">ignores</a></span>, <span class='object_link'><a href="ApiObjectClassMethods.html#plural_name-instance_method" title="Eventbrite::ApiObjectClassMethods#plural_name (method)">plural_name</a></span>, <span class='object_link'><a href="ApiObjectClassMethods.html#readable-instance_method" title="Eventbrite::ApiObjectClassMethods#readable (method)">readable</a></span>, <span class='object_link'><a href="ApiObjectClassMethods.html#readable_date-instance_method" title="Eventbrite::ApiObjectClassMethods#readable_date (method)">readable_date</a></span>, <span class='object_link'><a href="ApiObjectClassMethods.html#reformats-instance_method" title="Eventbrite::ApiObjectClassMethods#reformats (method)">reformats</a></span>, <span class='object_link'><a href="ApiObjectClassMethods.html#remap-instance_method" title="Eventbrite::ApiObjectClassMethods#remap (method)">remap</a></span>, <span class='object_link'><a href="ApiObjectClassMethods.html#renames-instance_method" title="Eventbrite::ApiObjectClassMethods#renames (method)">renames</a></span>, <span class='object_link'><a href="ApiObjectClassMethods.html#requires-instance_method" title="Eventbrite::ApiObjectClassMethods#requires (method)">requires</a></span>, <span class='object_link'><a href="ApiObjectClassMethods.html#singlet_name-instance_method" title="Eventbrite::ApiObjectClassMethods#singlet_name (method)">singlet_name</a></span>, <span class='object_link'><a href="ApiObjectClassMethods.html#updatable-instance_method" title="Eventbrite::ApiObjectClassMethods#updatable (method)">updatable</a></span>, <span class='object_link'><a href="ApiObjectClassMethods.html#updatable_date-instance_method" title="Eventbrite::ApiObjectClassMethods#updatable_date (method)">updatable_date</a></span></p>
-
   
   
-  
-  
-  
-  
-  
-  <h3 class="inherited">Methods included from <span class='object_link'><a href="ApiObjectRelationships.html" title="Eventbrite::ApiObjectRelationships (module)">ApiObjectRelationships</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="ApiObjectRelationships.html#collection_clean%21-instance_method" title="Eventbrite::ApiObjectRelationships#collection_clean! (method)">#collection_clean!</a></span>, <span class='object_link'><a href="ApiObjectRelationships.html#collection_dirty%21-instance_method" title="Eventbrite::ApiObjectRelationships#collection_dirty! (method)">#collection_dirty!</a></span>, <span class='object_link'><a href="ApiObjectRelationships.html#collection_dirty%3F-instance_method" title="Eventbrite::ApiObjectRelationships#collection_dirty? (method)">#collection_dirty?</a></span>, <span class='object_link'><a href="ApiObjectRelationships.html#collection_get-instance_method" title="Eventbrite::ApiObjectRelationships#collection_get (method)">#collection_get</a></span>, <span class='object_link'><a href="ApiObjectRelationships.html#collection_set-instance_method" title="Eventbrite::ApiObjectRelationships#collection_set (method)">#collection_set</a></span>, <span class='object_link'><a href="ApiObjectRelationships.html#collections_save-instance_method" title="Eventbrite::ApiObjectRelationships#collections_save (method)">#collections_save</a></span>, <span class='object_link'><a href="ApiObjectRelationships.html#load_collections_with_hash-instance_method" title="Eventbrite::ApiObjectRelationships#load_collections_with_hash (method)">#load_collections_with_hash</a></span>, <span class='object_link'><a href="ApiObjectRelationships.html#load_relations_with_hash-instance_method" title="Eventbrite::ApiObjectRelationships#load_relations_with_hash (method)">#load_relations_with_hash</a></span>, <span class='object_link'><a href="ApiObjectRelationships.html#relation_clean%21-instance_method" title="Eventbrite::ApiObjectRelationships#relation_clean! (method)">#relation_clean!</a></span>, <span class='object_link'><a href="ApiObjectRelationships.html#relation_dirty%21-instance_method" title="Eventbrite::ApiObjectRelationships#relation_dirty! (method)">#relation_dirty!</a></span>, <span class='object_link'><a href="ApiObjectRelationships.html#relation_dirty%3F-instance_method" title="Eventbrite::ApiObjectRelationships#relation_dirty? (method)">#relation_dirty?</a></span>, <span class='object_link'><a href="ApiObjectRelationships.html#relation_get-instance_method" title="Eventbrite::ApiObjectRelationships#relation_get (method)">#relation_get</a></span>, <span class='object_link'><a href="ApiObjectRelationships.html#relation_set-instance_method" title="Eventbrite::ApiObjectRelationships#relation_set (method)">#relation_set</a></span>, <span class='object_link'><a href="ApiObjectRelationships.html#relations_save-instance_method" title="Eventbrite::ApiObjectRelationships#relations_save (method)">#relations_save</a></span>, <span class='object_link'><a href="ApiObjectRelationships.html#unnest_child_response-instance_method" title="Eventbrite::ApiObjectRelationships#unnest_child_response (method)">#unnest_child_response</a></span></p>
-<div id="constructor_details" class="method_details_list">
+  <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
     <div class="method_details first">
@@ -1389,332 +940,7 @@ Returns the value of attribute relations
     
     
       <div class="method_details first">
-  <p class="signature first" id="after_attribute_set-instance_method">
-  
-    - (<tt>Object</tt>) <strong>after_attribute_set</strong> 
-  
-
-  
-</p><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-41
-42</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/eventbrite/api_object.rb', line 41</span>
-
-<span class='kw'>def</span> <span class='id after_attribute_set'>after_attribute_set</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="after_load-instance_method">
-  
-    - (<tt>Object</tt>) <strong>after_load</strong>(hash = {}) 
-  
-
-  
-</p><div class="docstring">
-  <div class="discussion">
-    <p>
-A callback for after loads
-</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-79
-80
-81</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/eventbrite/api_object.rb', line 79</span>
-
-<span class='kw'>def</span> <span class='id after_load'>after_load</span><span class='lparen'>(</span><span class='id hash'>hash</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='id hash'>hash</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="after_new-instance_method">
-  
-    - (<tt>Object</tt>) <strong>after_new</strong> 
-  
-
-  
-</p><div class="docstring">
-  <div class="discussion">
-    <p>
-After save callback, only called on a new call
-</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-137</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/eventbrite/api_object.rb', line 137</span>
-
-<span class='kw'>def</span> <span class='id after_new'>after_new</span><span class='semicolon'>;</span>    <span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="after_save-instance_method">
-  
-    - (<tt>Object</tt>) <strong>after_save</strong> 
-  
-
-  
-</p><div class="docstring">
-  <div class="discussion">
-    <p>
-After save callback
-</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-141</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/eventbrite/api_object.rb', line 141</span>
-
-<span class='kw'>def</span> <span class='id after_save'>after_save</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="after_update-instance_method">
-  
-    - (<tt>Object</tt>) <strong>after_update</strong> 
-  
-
-  
-</p><div class="docstring">
-  <div class="discussion">
-    <p>
-After save callback, only called on an update call
-</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-139</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/eventbrite/api_object.rb', line 139</span>
-
-<span class='kw'>def</span> <span class='id after_update'>after_update</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="api_hash-instance_method">
-  
-    - (<tt>Object</tt>) <strong>api_hash</strong> 
-  
-
-  
-</p><div class="docstring">
-  <div class="discussion">
-    <p>
-Callbacks for individual hash changes These are added to the
-updatable_hash, if appropriate These are called by prep_api_hash
-</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-96</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/eventbrite/api_object.rb', line 96</span>
-
-<span class='kw'>def</span> <span class='id api_hash'>api_hash</span><span class='semicolon'>;</span>     <span class='lbrace'>{</span><span class='symbol'>:user</span> <span class='op'>=&gt;</span> <span class='id owner'>owner</span><span class='rbrace'>}</span><span class='semicolon'>;</span>  <span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="attribute_get-instance_method">
-  
-    - (<tt>Object</tt>) <strong>attribute_get</strong>(key) 
-  
-
-  
-</p><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-33</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/eventbrite/api_object.rb', line 33</span>
-
-<span class='kw'>def</span> <span class='id attribute_get'>attribute_get</span><span class='lparen'>(</span><span class='id key'>key</span><span class='rparen'>)</span><span class='semicolon'>;</span>   <span class='ivar'>@attributes</span><span class='lbracket'>[</span><span class='id key'>key</span><span class='rbracket'>]</span><span class='semicolon'>;</span>   <span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="attribute_set-instance_method">
-  
-    - (<tt>Object</tt>) <strong>attribute_set</strong>(key, val, no_dirty = false) 
-  
-
-  
-</p><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-35
-36
-37
-38
-39</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/eventbrite/api_object.rb', line 35</span>
-
-<span class='kw'>def</span> <span class='id attribute_set'>attribute_set</span><span class='lparen'>(</span><span class='id key'>key</span><span class='comma'>,</span> <span class='id val'>val</span><span class='comma'>,</span> <span class='id no_dirty'>no_dirty</span> <span class='op'>=</span> <span class='kw'>false</span><span class='rparen'>)</span>
-  <span class='ivar'>@dirty</span><span class='lbracket'>[</span><span class='id key'>key</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>true</span> <span class='kw'>if</span><span class='lparen'>(</span><span class='ivar'>@attributes</span><span class='lbracket'>[</span><span class='id key'>key</span><span class='rbracket'>]</span> <span class='op'>!=</span> <span class='id val'>val</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id no_dirty'>no_dirty</span><span class='rparen'>)</span>
-  <span class='ivar'>@attributes</span><span class='lbracket'>[</span><span class='id key'>key</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id val'>val</span>
-  <span class='id after_attribute_set'>after_attribute_set</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="before_save-instance_method">
-  
-    - (<tt>Object</tt>) <strong>before_save</strong>(opts = {}) 
-  
-
-  
-</p><div class="docstring">
-  <div class="discussion">
-    <p>
-Callback that happens before saving. Allows modification of options
-</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-112</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/eventbrite/api_object.rb', line 112</span>
-
-<span class='kw'>def</span> <span class='id before_save'>before_save</span><span class='lparen'>(</span><span class='id opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span><span class='semicolon'>;</span>   <span class='id opts'>opts</span><span class='semicolon'>;</span>     <span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="clean!-instance_method">
-  
-    - (<tt>Object</tt>) <strong>clean!</strong> 
-  
-
-  
-</p><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-26
-27
-28</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/eventbrite/api_object.rb', line 26</span>
-
-<span class='kw'>def</span> <span class='id clean!'>clean!</span>
-  <span class='ivar'>@dirty</span> <span class='op'>=</span> <span class='ivar'>@dirty_relations</span> <span class='op'>=</span> <span class='ivar'>@dirty_collections</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="dirty?-instance_method">
+  <p class="signature first" id="dirty?-instance_method">
   
     - (<tt>Boolean</tt>) <strong>dirty?</strong> 
   
@@ -1724,7 +950,7 @@ Callback that happens before saving. Allows modification of options
   <div class="discussion">
     <p>
 Something is dirty if it&#8217;s never been loaded or if the @dirty hash
-contains something.
+contains something (which happens when an attribute is changed)
 </p>
 
 
@@ -1751,150 +977,17 @@ contains something.
       <pre class="lines">
 
 
-175
-176
-177
-178</pre>
+206
+207
+208
+209</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/eventbrite/api_object.rb', line 175</span>
+      <pre class="code"><span class="info file"># File 'lib/eventbrite/api_object.rb', line 206</span>
 
 <span class='kw'>def</span> <span class='id dirty?'>dirty?</span>
   <span class='ivar'>@dirty</span> <span class='op'>||=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
   <span class='ivar'>@dirty</span><span class='period'>.</span><span class='id size'>size</span> <span class='op'>&gt;</span> <span class='int'>0</span> <span class='op'>||</span> <span class='op'>!</span><span class='id loaded?'>loaded?</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="get_hash-instance_method">
-  
-    - (<tt>Object</tt>) <strong>get_hash</strong> 
-  
-
-  
-</p><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-98</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/eventbrite/api_object.rb', line 98</span>
-
-<span class='kw'>def</span> <span class='id get_hash'>get_hash</span><span class='semicolon'>;</span>     <span class='lbrace'>{</span><span class='symbol'>:id</span> <span class='op'>=&gt;</span> <span class='id id'>id</span><span class='rbrace'>}</span><span class='semicolon'>;</span>       <span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="init-instance_method">
-  
-    - (<tt>Object</tt>) <strong>init</strong> 
-  
-
-  
-</p><div class="docstring">
-  <div class="discussion">
-    <p>
-Callback after initialization
-</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-31</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/eventbrite/api_object.rb', line 31</span>
-
-<span class='kw'>def</span> <span class='id init'>init</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="init_with_hash-instance_method">
-  
-    - (<tt>Object</tt>) <strong>init_with_hash</strong>(hash, no_dirty = false) 
-  
-
-  
-</p><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/eventbrite/api_object.rb', line 64</span>
-
-<span class='kw'>def</span> <span class='id init_with_hash'>init_with_hash</span><span class='lparen'>(</span><span class='id hash'>hash</span><span class='comma'>,</span> <span class='id no_dirty'>no_dirty</span> <span class='op'>=</span> <span class='kw'>false</span><span class='rparen'>)</span>
-  <span class='ivar'>@attributes</span> <span class='op'>||=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
-  <span class='id hash'>hash</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id k'>k</span><span class='comma'>,</span> <span class='id v'>v</span><span class='op'>|</span> 
-    <span class='kw'>self</span><span class='period'>.</span><span class='id __send__'>__send__</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id k'>k</span><span class='rbrace'>}</span><span class='tstring_content'>=</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id v'>v</span><span class='comma'>,</span> <span class='id no_dirty'>no_dirty</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='period'>.</span><span class='id ignores'>ignores</span><span class='period'>.</span><span class='id include?'>include?</span><span class='lparen'>(</span><span class='id k'>k</span><span class='rparen'>)</span> <span class='op'>||</span>
-                                                <span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='period'>.</span><span class='id ignores'>ignores</span><span class='period'>.</span><span class='id include?'>include?</span><span class='lparen'>(</span><span class='id k'>k</span><span class='period'>.</span><span class='id to_sym'>to_sym</span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='op'>||</span>
-                                                <span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='period'>.</span><span class='id relations'>relations</span><span class='period'>.</span><span class='id include?'>include?</span><span class='lparen'>(</span><span class='id k'>k</span><span class='rparen'>)</span> <span class='op'>||</span>
-                                                <span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='period'>.</span><span class='id relations'>relations</span><span class='period'>.</span><span class='id include?'>include?</span><span class='lparen'>(</span><span class='id k'>k</span><span class='period'>.</span><span class='id to_sym'>to_sym</span><span class='rparen'>)</span> <span class='op'>||</span>
-                                                <span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='period'>.</span><span class='id collections'>collections</span><span class='period'>.</span><span class='id include?'>include?</span><span class='lparen'>(</span><span class='id k'>k</span><span class='rparen'>)</span> <span class='op'>||</span>
-                                                <span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='period'>.</span><span class='id collections'>collections</span><span class='period'>.</span><span class='id include?'>include?</span><span class='lparen'>(</span><span class='id k'>k</span><span class='period'>.</span><span class='id to_sym'>to_sym</span><span class='rparen'>)</span> <span class='op'>||</span>
-                                                <span class='op'>!</span><span class='kw'>self</span><span class='period'>.</span><span class='id respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='id k'>k</span><span class='rparen'>)</span>
-  <span class='kw'>end</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="inspect-instance_method">
-  
-    - (<tt>Object</tt>) <strong>inspect</strong> 
-  
-
-  
-</p><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-159
-160
-161</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/eventbrite/api_object.rb', line 159</span>
-
-<span class='kw'>def</span> <span class='id inspect'>inspect</span>
-  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#&lt;</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='rbrace'>}</span><span class='tstring_content'>:</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id id'>id</span><span class='rbrace'>}</span><span class='tstring_content'> @attributes=</span><span class='embexpr_beg'>#{</span><span class='ivar'>@attributes</span><span class='period'>.</span><span class='id inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_content'>&gt;</span><span class='tstring_end'>&quot;</span></span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1908,28 +1001,44 @@ Callback after initialization
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Loads attributes and relations from a hash,  or makes an API call to
+retrieve necessary data if load hash is empty
+</p>
+<p>
+The no_dirty attribute allows you to force a dirty tracking to recognize
+the object as clean.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61</pre>
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/eventbrite/api_object.rb', line 49</span>
+      <pre class="code"><span class="info file"># File 'lib/eventbrite/api_object.rb', line 66</span>
 
 <span class='kw'>def</span> <span class='id load'>load</span><span class='lparen'>(</span><span class='id hash'>hash</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='id no_dirty'>no_dirty</span> <span class='op'>=</span> <span class='kw'>false</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id hash'>hash</span><span class='period'>.</span><span class='id nil?'>nil?</span> <span class='op'>||</span> <span class='id hash'>hash</span><span class='period'>.</span><span class='id size'>size</span> <span class='op'>==</span> <span class='int'>0</span>
@@ -1959,8 +1068,8 @@ Callback after initialization
 </p><div class="docstring">
   <div class="discussion">
     <p>
-Forces a clean load from the remote API. Load can be passed a hash of local
-values to avoid an API call, but this circumvents it.
+Forces a clean load from the remote API. #load can be passed a hash of
+local values to avoid an API call, but this circumvents it.
 </p>
 
 
@@ -1974,12 +1083,12 @@ values to avoid an API call, but this circumvents it.
       <pre class="lines">
 
 
-106
-107
-108</pre>
+130
+131
+132</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/eventbrite/api_object.rb', line 106</span>
+      <pre class="code"><span class="info file"># File 'lib/eventbrite/api_object.rb', line 130</span>
 
 <span class='kw'>def</span> <span class='id load!'>load!</span>
   <span class='id load'>load</span><span class='lparen'>(</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rparen'>)</span>
@@ -2027,141 +1136,15 @@ then we assume it&#8217;s new when saving.
       <pre class="lines">
 
 
-169
-170
-171</pre>
+200
+201
+202</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/eventbrite/api_object.rb', line 169</span>
+      <pre class="code"><span class="info file"># File 'lib/eventbrite/api_object.rb', line 200</span>
 
 <span class='kw'>def</span> <span class='id loaded?'>loaded?</span>
   <span class='lparen'>(</span><span class='op'>!</span><span class='ivar'>@id</span><span class='period'>.</span><span class='id nil?'>nil?</span> <span class='op'>||</span> <span class='ivar'>@id</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="nested_hash-instance_method">
-  
-    - (<tt>Object</tt>) <strong>nested_hash</strong> 
-  
-
-  
-</p><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-101</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/eventbrite/api_object.rb', line 101</span>
-
-<span class='kw'>def</span> <span class='id nested_hash'>nested_hash</span><span class='semicolon'>;</span>  <span class='lbrace'>{</span><span class='symbol'>:user</span> <span class='op'>=&gt;</span> <span class='id owner'>owner</span><span class='comma'>,</span> <span class='symbol'>:id</span> <span class='op'>=&gt;</span> <span class='id id'>id</span><span class='rbrace'>}</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="new_hash-instance_method">
-  
-    - (<tt>Object</tt>) <strong>new_hash</strong> 
-  
-
-  
-</p><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-99</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/eventbrite/api_object.rb', line 99</span>
-
-<span class='kw'>def</span> <span class='id new_hash'>new_hash</span><span class='semicolon'>;</span>     <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='semicolon'>;</span>                <span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="preinit-instance_method">
-  
-    - (<tt>Object</tt>) <strong>preinit</strong> 
-  
-
-  
-</p><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-21
-22
-23
-24</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/eventbrite/api_object.rb', line 21</span>
-
-<span class='kw'>def</span> <span class='id preinit'>preinit</span>
-  <span class='ivar'>@attributes</span> <span class='op'>=</span> <span class='ivar'>@relations</span> <span class='op'>=</span> <span class='ivar'>@collections</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
-  <span class='ivar'>@dirty</span> <span class='op'>=</span> <span class='ivar'>@dirty_relations</span> <span class='op'>=</span> <span class='ivar'>@dirty_collections</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="prep_api_hash-instance_method">
-  
-    - (<tt>Object</tt>) <strong>prep_api_hash</strong>(method = 'get', hash = {}) 
-  
-
-  
-</p><div class="docstring">
-  <div class="discussion">
-    <p>
-A callback for methods to clean up the hash a bit allowing subclasses to
-insert the user if necessary
-</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-85
-86
-87
-88
-89
-90
-91</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/eventbrite/api_object.rb', line 85</span>
-
-<span class='kw'>def</span> <span class='id prep_api_hash'>prep_api_hash</span><span class='lparen'>(</span><span class='id method'>method</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>get</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id hash'>hash</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='id hash'>hash</span> <span class='op'>=</span> <span class='id hash'>hash</span><span class='period'>.</span><span class='id merge'>merge</span> <span class='id api_hash'>api_hash</span>
-  <span class='id hash'>hash</span> <span class='op'>=</span> <span class='id hash'>hash</span><span class='period'>.</span><span class='id merge'>merge</span> <span class='id get_hash'>get_hash</span> <span class='kw'>if</span> <span class='id method'>method</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>get</span><span class='tstring_end'>'</span></span>
-  <span class='id hash'>hash</span> <span class='op'>=</span> <span class='id hash'>hash</span><span class='period'>.</span><span class='id merge'>merge</span> <span class='id new_hash'>new_hash</span> <span class='kw'>if</span> <span class='id method'>method</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>new</span><span class='tstring_end'>'</span></span>
-  <span class='id hash'>hash</span> <span class='op'>=</span> <span class='id hash'>hash</span><span class='period'>.</span><span class='id merge'>merge</span> <span class='id update_hash'>update_hash</span> <span class='kw'>if</span> <span class='id method'>method</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>update</span><span class='tstring_end'>'</span></span>
-  <span class='id hash'>hash</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2178,7 +1161,8 @@ insert the user if necessary
 </p><div class="docstring">
   <div class="discussion">
     <p>
-Save function. Can alter functionality by changing callbacks
+Save function. Individual objects can alter functionality by changing
+callbacks
 </p>
 
 
@@ -2192,29 +1176,29 @@ Save function. Can alter functionality by changing callbacks
       <pre class="lines">
 
 
-115
-116
-117
-118
-119
-120
-121
-122
-123
-124
-125
-126
-127
-128
-129
-130
-131
-132
-133
-134</pre>
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/eventbrite/api_object.rb', line 115</span>
+      <pre class="code"><span class="info file"># File 'lib/eventbrite/api_object.rb', line 139</span>
 
 <span class='kw'>def</span> <span class='id save'>save</span><span class='lparen'>(</span><span class='id opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id dirty?'>dirty?</span>
@@ -2248,96 +1232,33 @@ Save function. Can alter functionality by changing callbacks
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns a simple string representing the class and its attributes
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-163
-164
-165</pre>
+193
+194
+195</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/eventbrite/api_object.rb', line 163</span>
+      <pre class="code"><span class="info file"># File 'lib/eventbrite/api_object.rb', line 193</span>
 
 <span class='kw'>def</span> <span class='id to_s'>to_s</span>
   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#&lt;</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='rbrace'>}</span><span class='tstring_content'>:</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id id'>id</span><span class='rbrace'>}</span><span class='tstring_content'> @attributes=</span><span class='embexpr_beg'>#{</span><span class='ivar'>@attributes</span><span class='period'>.</span><span class='id inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_content'>&gt;</span><span class='tstring_end'>&quot;</span></span>
 <span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="updatable_hash-instance_method">
-  
-    - (<tt>Object</tt>) <strong>updatable_hash</strong>(always_dirty = []) 
-  
-
-  
-</p><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-144
-145
-146
-147
-148
-149
-150
-151
-152
-153
-154
-155
-156
-157</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/eventbrite/api_object.rb', line 144</span>
-
-<span class='kw'>def</span> <span class='id updatable_hash'>updatable_hash</span><span class='lparen'>(</span><span class='id always_dirty'>always_dirty</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-  <span class='id updates'>updates</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
-  <span class='ivar'>@attributes</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id k'>k</span><span class='comma'>,</span> <span class='id v'>v</span><span class='op'>|</span>
-    <span class='id updates'>updates</span><span class='lbracket'>[</span><span class='id k'>k</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='ivar'>@attributes</span><span class='lbracket'>[</span><span class='id k'>k</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='ivar'>@dirty</span><span class='lbracket'>[</span><span class='id k'>k</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='id always_dirty'>always_dirty</span><span class='period'>.</span><span class='id include?'>include?</span><span class='lparen'>(</span><span class='id k'>k</span><span class='rparen'>)</span>
-  <span class='kw'>end</span>
-  <span class='id updates'>updates</span><span class='period'>.</span><span class='id merge!'>merge!</span> <span class='symbol'>:id</span> <span class='op'>=&gt;</span> <span class='ivar'>@id</span> <span class='kw'>if</span> <span class='ivar'>@id</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='period'>.</span><span class='id reformats'>reformats</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id k'>k</span><span class='op'>|</span>
-    <span class='id updates'>updates</span><span class='lbracket'>[</span><span class='id k'>k</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id __send__'>__send__</span><span class='lparen'>(</span><span class='id k'>k</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id updates'>updates</span><span class='lbracket'>[</span><span class='id k'>k</span><span class='rbracket'>]</span>
-  <span class='kw'>end</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='period'>.</span><span class='id renames'>renames</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id k'>k</span><span class='comma'>,</span><span class='id v'>v</span><span class='op'>|</span>
-    <span class='id updates'>updates</span><span class='lbracket'>[</span><span class='id v'>v</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id updates'>updates</span><span class='period'>.</span><span class='id delete'>delete</span><span class='lparen'>(</span><span class='id k'>k</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id updates'>updates</span><span class='lbracket'>[</span><span class='id k'>k</span><span class='rbracket'>]</span>
-  <span class='kw'>end</span>
-  <span class='id updates'>updates</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="update_hash-instance_method">
-  
-    - (<tt>Object</tt>) <strong>update_hash</strong> 
-  
-
-  
-</p><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-97</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/eventbrite/api_object.rb', line 97</span>
-
-<span class='kw'>def</span> <span class='id update_hash'>update_hash</span><span class='semicolon'>;</span>  <span class='lbrace'>{</span><span class='symbol'>:id</span> <span class='op'>=&gt;</span> <span class='id id'>id</span><span class='rbrace'>}</span><span class='semicolon'>;</span>       <span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -2348,7 +1269,7 @@ Save function. Can alter functionality by changing callbacks
 </div>
     
     <div id="footer">
-  Generated on Sat May 28 23:27:46 2011 by 
+  Generated on Sun May 29 14:05:06 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.7.1 (ruby-1.9.2).
 </div>
