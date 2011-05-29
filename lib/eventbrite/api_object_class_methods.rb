@@ -1,27 +1,32 @@
 module Eventbrite
+  # @private
+  # Extra methods for class level interactions (defining attributes and
+  # relationships)
   module ApiObjectClassMethods
+    # @private
     def singlet_name(name = false)
       @singlet_name = name if name
       @singlet_name || self.to_s.gsub('Eventbrite::', '').downcase
     end
-  
+    # @private
     def plural_name(name = false)
       @plural_name = name if name
       @plural_name || "#{self.singlet_name}s"
     end
-  
+    # @private
     def ignores(*args)
       @ignores ||= []
       @ignores.concat(args) unless args.empty?
       @ignores
     end
-    
+    # @private
     def requires(*args)
       @requires ||= []
       @requires.concat(args) unless args.empty?
       @requires
     end
     
+    # @private
     # Columns to reformat when sending outgoing data
     # (Reformatting is assumed to be done by calling the method with the
     # same name as the attribute, so to reformat foo, use def foo... with 
@@ -32,6 +37,7 @@ module Eventbrite
       @reformats
     end
     
+    # @private
     # Columns to rename when sending outgoing data
     def renames(attrs = false)
       @renames ||= {}
@@ -39,6 +45,8 @@ module Eventbrite
       @renames
     end
   
+    # @private
+    # Declares updatable attributes
     def updatable(*args)
       args.each{|symbol|
         module_eval( "def #{symbol}(); attribute_get(:#{symbol});  end")
@@ -46,6 +54,8 @@ module Eventbrite
       }
     end
   
+    # @private
+    # Declares readable attributes
     def readable(*args)
       args.each{|symbol|
       
@@ -54,6 +64,8 @@ module Eventbrite
       }
     end
   
+    # @private
+    # Declares updatable date attributes
     def updatable_date(*args)
       args.each{|symbol|
       
@@ -62,6 +74,8 @@ module Eventbrite
       }
     end
   
+    # @private
+    # Declares readable date attributes
     def readable_date(*args)
       args.each{|symbol|
       
@@ -70,6 +84,7 @@ module Eventbrite
       }
     end
     
+    # @private
     # Columns that are the same as other columns. This is mainly useful
     # for incoming data with inconsistent naming. Args are passed as a hash,
     # where the key is the new method name, and the value is the target method name
@@ -83,6 +98,7 @@ module Eventbrite
       }
     end
     
+    # @private
     # Defines a has 1 relation
     def has(args = {})
       @class_relations ||= {}
@@ -94,10 +110,13 @@ module Eventbrite
         @class_relations[symbol] = klass
       }
     end
+    # @private
+    # Return a list of relations a class shares
     def relations
       @class_relations || {}
     end
     
+    # @private
     # Defines a has may relation
     def collection(args = {})
       @class_collections ||= {}
@@ -109,6 +128,7 @@ module Eventbrite
         @class_collections[symbol] = klass
       }
     end
+    # @private
     def collections
       @class_collections || {}
     end

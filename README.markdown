@@ -19,6 +19,20 @@ Usage
 
 Some basic (yardoc generated) documentation availabe at: http://therabidbanana.github.com/eventbrite/
 
+This library attempts to create an almost ActiveResource like wrapper
+around the Eventbrite api. The following objects are available:
+
+* Attendee (can only be viewed, not edited)
+* Discount
+* Event (has many Tickets, Attendees, Discounts, has one Venue and
+  one Organizer)
+* Organizer (has many Events)
+* Ticket
+* User (has many Events, Organizers, Venues)
+* Venue
+
+
+
 Authentication
 --------------
 Many methods require user authentication. For these methods, you can pass a user object as an authentication token, and the user's api_key will automatically be used for the request. 
@@ -27,7 +41,7 @@ Example:
     
     Eventbrite::Event.new({"x" => "y"... , "user" => user})
 
-Known Bugs
+Known Issues
 ----------
 
 1. This library's testing coverage is almost zero. 
@@ -46,43 +60,20 @@ Learn more about EventBrite's App Key policy here: [Terms of Service](http://www
 Register for your own app key here: [Request a Key](http://www.eventbrite.com/api/key/)
 
 
-API Gotchas:
---------------------
+API Gotchas 
+------------
 
-A list of sticking points for anyone attempting their own integration with the EventBrite API:
+I've compiled a  list of issues developers may encounter with the poorly
+designed Eventbrite API (in case you're writing your own integration
+from scratch in Ruby or any other language). 
 
-__/get => /update variable inconsistencies__
+There are many places where variable names are misspelled, or format is
+changed, and many places where the API documentation is flat out wrong
+(dates are not ISO8601 anywhere in the eventbrite api, though they claim
+they are).
 
-* event.id => event.event_id
-* event.timezone (Olson format, ex: "US/Central") => event.timezone (GMT offset hours, ex: "GMT-05")
-* event.privacy (String representing privacy "Private"|"Public") => event.privacy (Boolean 0 = public)
-* event.url => event.personalized_url
-* venue.address => venue.adress
-* venue.address_2 => venue.adress_2
-* venue.name => venue.venue
-* event.tickets.ticket.start_date => ticket.start_sales
-* event.tickets.ticket.end_date => ticket.end_sales
-* event.tickets.ticket.visible (1 is visible) => ticket.hide (y is hidden, n is visible)
-* event.tickets.ticket.quantity_available => ticket.quantity
+Read the details at: http://therabidbanana.github.com/eventbrite/file.ImplementationGotchas.html
 
-__Fields you can't edit__
-
-* event.category
-* event.tags
-* event.logo
-* ticket.hide (on /ticket_new. You must save the ticket then call /ticket_update to hide)
-
-__Documentation errors__
-
-* /venue_new and /venue_update does not throw an error if "venue" is invalid/non-unique/empty.
-* Dates are not technically ISO 8601 (ISO 8601 specifies a "T" - not a space - between date and time, so passing perfectly formatted ISO 8601 datetime strings such as those a standard library would provide will cause errors)
-* Error description for event Privacy Error: <pre>"The privacy field must be equal to 0 (public) or 1 (private)"</pre> -> This is the opposite of the actual case. 0 is private and 1 is public, as described in other places within the API.
-* /ticket_new and /ticket_update do not throw errors if quantity not set
-
-__Other gotchas__
-
-* Venue object included in event has extra "Lat-Long" attribute, along with "latitude" and "longitude". If you're turning a result into an object, this might cause an error if you don't suspect it.
-* Timezones are weird (nothing EventBrite can do about this one): GMT offset for timezones is always computed in standard time (don't adjust for Daylight Savings, unlike UTC offset). This weirdness means that once you save the timezone the Olson description might not match what you think it should (ex. US/Eastern becomes GMT-5 which then becomes America/Bogota)
 
 Note on Patches/Pull Requests
 -----------------------------

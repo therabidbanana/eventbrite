@@ -1,5 +1,6 @@
 module Eventbrite
   
+  # Each event may have multiple available tickets.
   class Ticket < ApiObject
     
     updatable :is_donation
@@ -12,7 +13,8 @@ module Eventbrite
     readable  :quantity_sold, :currency
     attr_accessor :event
     
-    # Remapping some API inconsistencies
+    # @private
+    # Remapping some API inconsistencies 
     remap :type => :is_donation, :visible => :hide, :quantity_available => :quantity
     remap :end_date => :end_sales, :start_date => :start_sales
     

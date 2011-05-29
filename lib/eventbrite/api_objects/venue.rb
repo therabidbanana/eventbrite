@@ -12,8 +12,10 @@ module Eventbrite
     renames :name => :venue, :address => :adress, :address_2 => :adress_2
     ignores :"Lat-Long"
     
-    def state;        region;       end    # Region is same as state in US
-    def state=(val);  region= val;  end    # Region is same as state in US
+    # Region is same as state in US
+    def state;        region;       end 
+    # Region is same as state in US
+    def state=(val);  region= val;  end 
   end
   class VenueCollection < ApiObjectCollection; collection_for Venue; end
 end

@@ -1,6 +1,8 @@
 require 'eventbrite/api_objects/ticket'
 module Eventbrite
   
+  # The Attendee object represents an attendee to the {Eventbrite::Event event}.
+  # Attendees can only be viewed, not modified.
   class Attendee < ApiObject
     
     readable :quantity, :currency, :amount_paid
@@ -35,16 +37,25 @@ module Eventbrite
       init_with_hash(hash, true)
     end
     
+    # @private
+    # Attendees can't be altered - overriding the ApiObject#save so it doesn't
+    # do anything.
     def save(*args)
       # noop. Attendees can't be altered via api
     end
   end
+
+  # Represents a list of {Eventbrite::Attendee Attendees}.
   class AttendeeCollection < ApiObjectCollection
     collection_for Attendee
     getter :event_list_attendees
     def initialize(owner = false, hash_array = [], event = false)
       super(event, hash_array)
     end
+    
+    # @private
+    # Attendees can't be altered - overriding the ApiObjectCollection#save so it doesn't
+    # do anything.    
     def save(*args)
       # noop. Attendees can't be altered via api
     end

@@ -5,6 +5,13 @@ require 'eventbrite/api_objects/organizer'
 require 'eventbrite/api_objects/discount'
 require 'eventbrite/api_objects/attendee'
 module Eventbrite
+
+  # The Event class is the main point of interaction for most Eventbrite api
+  # calls. Most objects have to be directly related to an Event.
+  #
+  # Events must have a Venue and an Organizer.
+  #
+  # Events have collections of Attendees, Tickets,  and Discounts
   class Event < Eventbrite::ApiObject
 
     updatable :title, :description, :tags, :timezone
@@ -31,6 +38,7 @@ module Eventbrite
     collection :attendees => Eventbrite::AttendeeCollection
     collection :discounts => Eventbrite::DiscountCollection
     
+    # Returns privacy status of event
     def privacy
       case attribute_get(:privacy)
       when "Private"
@@ -40,11 +48,13 @@ module Eventbrite
       end
       attribute_get(:privacy)
     end
-        
+    
+    # Returns currency, setting to default of USD.
     def currency
       attribute_get(:currency) || attribute_set(:currency, "USD")
     end
     
+    # Returns timezone, reformatting to GMT offset if necessary.
     def timezone
       return attribute_get(:timezone) if attribute_get(:timezone) =~ /GMT[+-]\d{1,2}/
       time = TZInfo::Timezone.get(attribute_get(:timezone)).current_period
@@ -54,26 +64,37 @@ module Eventbrite
       attribute_get(:timezone)
     end
     
+    # Returns true if event is private
     def private?
       privacy == 0 ? true : false
     end
     
+    # Returns true if event is not private
     def public?
       !private?
     end
     
+    # @private
+    # Handle differences in api - occasionally response is double
+    # wrapped in the XML.
     def unnest_child_response(response)
       response.has_key?('event') ? response['event'] : response
     end
     
+    # @private
+    # Mark the user's event collection as dirty
     def after_new
       @owner.dirty_events!
     end
     
+    # @private
+    # When requesting collections, request as many as possible.
     def nested_hash
       {:id => id, :count => 99999, :user => owner} # It's over 9000!
     end
     
   end
+
+  # A collection of events.
   class EventCollection < ApiObjectCollection; collection_for Event; end
 end
