@@ -1,0 +1,714 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Eventbrite::ApiObjectCollection
+  
+    &mdash; Documentation by YARD 0.7.1
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (A)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../Eventbrite.html" title="Eventbrite (module)">Eventbrite</a></span></span>
+     &raquo; 
+    <span class="title">ApiObjectCollection</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Eventbrite::ApiObjectCollection
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Eventbrite::ApiObjectCollection</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/eventbrite/api_object_collection.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<div id="subclasses">
+  <h2>Direct Known Subclasses</h2>
+  <p class="children"><span class='object_link'><a href="AttendeeCollection.html" title="Eventbrite::AttendeeCollection (class)">AttendeeCollection</a></span>, <span class='object_link'><a href="DiscountCollection.html" title="Eventbrite::DiscountCollection (class)">DiscountCollection</a></span>, <span class='object_link'><a href="EventCollection.html" title="Eventbrite::EventCollection (class)">EventCollection</a></span>, <span class='object_link'><a href="OrganizerCollection.html" title="Eventbrite::OrganizerCollection (class)">OrganizerCollection</a></span>, <span class='object_link'><a href="OrganizerEventCollection.html" title="Eventbrite::OrganizerEventCollection (class)">OrganizerEventCollection</a></span>, <span class='object_link'><a href="TicketCollection.html" title="Eventbrite::TicketCollection (class)">TicketCollection</a></span>, <span class='object_link'><a href="VenueCollection.html" title="Eventbrite::VenueCollection (class)">VenueCollection</a></span></p>
+</div>
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#collection_for-class_method" title="collection_for (class method)">+ (Object) <strong>collection_for</strong>(type = false) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#getter-class_method" title="getter (class method)">+ (Object) <strong>getter</strong>(name = false) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#plural_name-class_method" title="plural_name (class method)">+ (Object) <strong>plural_name</strong>(name = false) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#singlet_name-class_method" title="singlet_name (class method)">+ (Object) <strong>singlet_name</strong>(name = false) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#dirty%3F-instance_method" title="#dirty? (instance method)">- (Boolean) <strong>dirty?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (ApiObjectCollection) <strong>initialize</strong>(owner = false, hash_array = [], parent = false) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+A new instance of ApiObjectCollection.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#inspect-instance_method" title="#inspect (instance method)">- (Object) <strong>inspect</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#method_missing-instance_method" title="#method_missing (instance method)">- (Object) <strong>method_missing</strong>(meth, *args, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#save-instance_method" title="#save (instance method)">- (Object) <strong>save</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_s-instance_method" title="#to_s (instance method)">- (Object) <strong>to_s</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="Eventbrite::ApiObjectCollection (class)">ApiObjectCollection</a></span></tt>) <strong>initialize</strong>(owner = false, hash_array = [], parent = false) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+A new instance of ApiObjectCollection
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+4
+5
+6
+7
+8
+9
+10</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/eventbrite/api_object_collection.rb', line 4</span>
+
+<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id owner'>owner</span> <span class='op'>=</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='id hash_array'>hash_array</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id parent'>parent</span> <span class='op'>=</span> <span class='kw'>false</span><span class='rparen'>)</span>
+  <span class='ivar'>@owner</span> <span class='op'>=</span> <span class='id owner'>owner</span>
+  <span class='id hash_array'>hash_array</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id hash_array'>hash_array</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+  <span class='id arr'>arr</span> <span class='op'>=</span> <span class='id hash_array'>hash_array</span><span class='period'>.</span><span class='id map'>map</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id v'>v</span><span class='op'>|</span> <span class='id v'>v</span><span class='lbracket'>[</span><span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='period'>.</span><span class='id singlet_name'>singlet_name</span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='period'>.</span><span class='id reject'>reject</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id v'>v</span><span class='op'>|</span> <span class='id v'>v</span><span class='period'>.</span><span class='id empty?'>empty?</span> <span class='rbrace'>}</span>
+  <span class='ivar'>@array</span> <span class='op'>=</span> <span class='id arr'>arr</span><span class='period'>.</span><span class='id map'>map</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id v'>v</span><span class='op'>|</span> <span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='period'>.</span><span class='id collection_for'>collection_for</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id owner'>owner</span><span class='comma'>,</span> <span class='id v'>v</span><span class='rparen'>)</span><span class='rbrace'>}</span>
+  <span class='ivar'>@array</span> <span class='op'>=</span> <span class='ivar'>@array</span><span class='period'>.</span><span class='id reject'>reject</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id v'>v</span><span class='op'>|</span> <span class='id v'>v</span><span class='period'>.</span><span class='id __send__'>__send__</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='period'>.</span><span class='id collection_for'>collection_for</span><span class='period'>.</span><span class='id requires'>requires</span><span class='period'>.</span><span class='id first'>first</span><span class='rparen'>)</span><span class='period'>.</span><span class='id nil?'>nil?</span> <span class='op'>||</span> <span class='id v'>v</span><span class='period'>.</span><span class='id __send__'>__send__</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='period'>.</span><span class='id collection_for'>collection_for</span><span class='period'>.</span><span class='id requires'>requires</span><span class='period'>.</span><span class='id first'>first</span><span class='rparen'>)</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rbrace'>}</span> <span class='kw'>unless</span> <span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='period'>.</span><span class='id collection_for'>collection_for</span><span class='period'>.</span><span class='id requires'>requires</span><span class='period'>.</span><span class='id empty?'>empty?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+<div id="method_missing_details" class="method_details_list">
+  <h2>Dynamic Method Handling</h2>
+  <p class="notice this">
+    This class handles dynamic methods through the <tt>method_missing</tt> method
+    
+  </p>
+  
+    <div class="method_details first">
+  <p class="signature first" id="method_missing-instance_method">
+  
+    - (<tt>Object</tt>) <strong>method_missing</strong>(meth, *args, &amp;block) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+34
+35
+36</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/eventbrite/api_object_collection.rb', line 34</span>
+
+<span class='kw'>def</span> <span class='id method_missing'>method_missing</span><span class='lparen'>(</span><span class='id meth'>meth</span><span class='comma'>,</span> <span class='op'>*</span><span class='id args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+  <span class='ivar'>@array</span><span class='period'>.</span><span class='id __send__'>__send__</span><span class='lparen'>(</span><span class='id meth'>meth</span><span class='comma'>,</span> <span class='op'>*</span><span class='id args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="collection_for-class_method">
+  
+    + (<tt>Object</tt>) <strong>collection_for</strong>(type = false) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+39
+40
+41
+42</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/eventbrite/api_object_collection.rb', line 39</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id collection_for'>collection_for</span><span class='lparen'>(</span><span class='id type'>type</span> <span class='op'>=</span> <span class='kw'>false</span><span class='rparen'>)</span>
+  <span class='ivar'>@collection_for</span> <span class='op'>=</span> <span class='id type'>type</span> <span class='kw'>if</span> <span class='id type'>type</span>
+  <span class='ivar'>@collection_for</span> 
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="getter-class_method">
+  
+    + (<tt>Object</tt>) <strong>getter</strong>(name = false) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+55
+56
+57
+58</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/eventbrite/api_object_collection.rb', line 55</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id getter'>getter</span><span class='lparen'>(</span><span class='id name'>name</span> <span class='op'>=</span> <span class='kw'>false</span><span class='rparen'>)</span>
+  <span class='ivar'>@getter</span> <span class='op'>=</span> <span class='id name'>name</span> <span class='kw'>if</span> <span class='id name'>name</span>
+  <span class='ivar'>@getter</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>user_list_</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id plural_name'>plural_name</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="plural_name-class_method">
+  
+    + (<tt>Object</tt>) <strong>plural_name</strong>(name = false) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+49
+50
+51
+52</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/eventbrite/api_object_collection.rb', line 49</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id plural_name'>plural_name</span><span class='lparen'>(</span><span class='id name'>name</span> <span class='op'>=</span> <span class='kw'>false</span><span class='rparen'>)</span>
+  <span class='ivar'>@plural_name</span> <span class='op'>=</span> <span class='id name'>name</span> <span class='kw'>if</span> <span class='id name'>name</span>
+  <span class='ivar'>@plural_name</span> <span class='op'>||</span> <span class='ivar'>@collection_for</span><span class='period'>.</span><span class='id plural_name'>plural_name</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id singlet_name'>singlet_name</span><span class='rbrace'>}</span><span class='tstring_content'>s</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="singlet_name-class_method">
+  
+    + (<tt>Object</tt>) <strong>singlet_name</strong>(name = false) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+44
+45
+46
+47</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/eventbrite/api_object_collection.rb', line 44</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id singlet_name'>singlet_name</span><span class='lparen'>(</span><span class='id name'>name</span> <span class='op'>=</span> <span class='kw'>false</span><span class='rparen'>)</span>
+  <span class='ivar'>@singlet_name</span> <span class='op'>=</span> <span class='id name'>name</span> <span class='kw'>if</span> <span class='id name'>name</span>
+  <span class='ivar'>@singlet_name</span> <span class='op'>||</span> <span class='ivar'>@collection_for</span><span class='period'>.</span><span class='id singlet_name'>singlet_name</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="dirty?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>dirty?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+26
+27
+28
+29
+30
+31
+32</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/eventbrite/api_object_collection.rb', line 26</span>
+
+<span class='kw'>def</span> <span class='id dirty?'>dirty?</span>
+  <span class='id is_dirty'>is_dirty</span> <span class='op'>=</span> <span class='kw'>false</span>
+  <span class='ivar'>@array</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id a'>a</span><span class='op'>|</span>
+    <span class='id is_dirty'>is_dirty</span> <span class='op'>=</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='id a'>a</span><span class='period'>.</span><span class='id dirty?'>dirty?</span>
+  <span class='kw'>end</span>
+  <span class='id is_dirty'>is_dirty</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="inspect-instance_method">
+  
+    - (<tt>Object</tt>) <strong>inspect</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+12
+13
+14</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/eventbrite/api_object_collection.rb', line 12</span>
+
+<span class='kw'>def</span> <span class='id inspect'>inspect</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='ivar'>@array</span><span class='period'>.</span><span class='id inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="save-instance_method">
+  
+    - (<tt>Object</tt>) <strong>save</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+20
+21
+22
+23
+24</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/eventbrite/api_object_collection.rb', line 20</span>
+
+<span class='kw'>def</span> <span class='id save'>save</span>
+  <span class='ivar'>@array</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id a'>a</span><span class='op'>|</span>
+    <span class='id a'>a</span><span class='period'>.</span><span class='id save'>save</span> <span class='kw'>if</span> <span class='id a'>a</span><span class='period'>.</span><span class='id dirty?'>dirty?</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="to_s-instance_method">
+  
+    - (<tt>Object</tt>) <strong>to_s</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+16
+17
+18</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/eventbrite/api_object_collection.rb', line 16</span>
+
+<span class='kw'>def</span> <span class='id to_s'>to_s</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='ivar'>@array</span><span class='period'>.</span><span class='id inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat May 28 23:27:48 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.1 (ruby-1.9.2).
+</div>
+
+  </body>
+</html>
