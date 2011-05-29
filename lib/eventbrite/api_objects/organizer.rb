@@ -1,17 +1,17 @@
-module EventBright
-  class Event < EventBright::ApiObject; end
+module Eventbrite
+  class Event < Eventbrite::ApiObject; end
   class OrganizerEventCollection < ApiObjectCollection
     collection_for Event
     getter :organizer_list_events
   end
   
-  class Organizer < EventBright::ApiObject
+  class Organizer < Eventbrite::ApiObject
 
     updatable :name, :description
     readable :url
     
     requires :name
-    collection :events => EventBright::OrganizerEventCollection
+    collection :events => Eventbrite::OrganizerEventCollection
     def after_new
       @owner.dirty_organizers!
     end

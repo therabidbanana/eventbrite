@@ -1,14 +1,14 @@
-module EventBright
+module Eventbrite
   module ApiObjectRelationships
     def relation_get(key);    @relations[key];    end
     def collection_get(key);  
       return @collections[key] unless @collections[key].nil? || collection_dirty?(key)
       klass = self.class.collections[key]
       begin
-        response = EventBright.call(klass.getter, nested_hash)
+        response = Eventbrite.call(klass.getter, nested_hash)
         response = unnest_child_response(response)
         c = klass.new(owner, response[klass.plural_name], self)
-      rescue EventBright::Error => e
+      rescue Eventbrite::Error => e
         if e.type == "Not Found" || e.type == "Discount error" || e.type == "Order error"
           c = klass.new(owner, nil, self) 
         else

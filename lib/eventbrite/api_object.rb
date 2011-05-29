@@ -1,9 +1,9 @@
-require 'eventbright/api_object_class_methods'
-require 'eventbright/api_object_relationships'
-module EventBright
+require 'eventbrite/api_object_class_methods'
+require 'eventbrite/api_object_relationships'
+module Eventbrite
   class ApiObject
-    extend EventBright::ApiObjectClassMethods
-    include EventBright::ApiObjectRelationships
+    extend Eventbrite::ApiObjectClassMethods
+    include Eventbrite::ApiObjectRelationships
     attr_accessor :id, :owner
     attr_accessor :attributes, :relations, :collections
     attr_accessor :dirty, :dirty_relations, :dirty_collections
@@ -48,7 +48,7 @@ module EventBright
     
     def load(hash = {}, no_dirty = false)
       if hash.nil? || hash.size == 0
-        response = EventBright.call("#{self.class.singlet_name}_get", prep_api_hash('get'))
+        response = Eventbrite.call("#{self.class.singlet_name}_get", prep_api_hash('get'))
         hash = response["#{self.class.singlet_name}"]
       end
       unless hash.nil? || hash.size == 0
@@ -118,11 +118,11 @@ module EventBright
       opts = relations_save(opts)
       opts = before_save(opts)
       call = if loaded?
-        c = EventBright.call("#{self.class.singlet_name}_update", prep_api_hash('update', opts))
+        c = Eventbrite.call("#{self.class.singlet_name}_update", prep_api_hash('update', opts))
         after_update
         c
       else
-        c = EventBright.call("#{self.class.singlet_name}_new", prep_api_hash('new', opts))
+        c = Eventbrite.call("#{self.class.singlet_name}_new", prep_api_hash('new', opts))
         after_new
         c
       end

@@ -1,4 +1,4 @@
-module EventBright
+module Eventbrite
   
   class Discount < ApiObject
     
@@ -14,7 +14,7 @@ module EventBright
     # Tickets can't live outside events, so we override standard owner to be event.
     def initialize(event = nil, hash = {})
       preinit
-      raise ArgumentError unless event.is_a? EventBright::Event
+      raise ArgumentError unless event.is_a? Eventbrite::Event
       @id = hash.delete(:id)
       @event = event
       @owner = event.owner

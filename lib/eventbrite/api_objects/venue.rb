@@ -1,4 +1,4 @@
-module EventBright
+module Eventbrite
   
   class Venue < ApiObject
     

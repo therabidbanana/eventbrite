@@ -1,8 +1,8 @@
-module EventBright
+module Eventbrite
   module ApiObjectClassMethods
     def singlet_name(name = false)
       @singlet_name = name if name
-      @singlet_name || self.to_s.gsub('EventBright::', '').downcase
+      @singlet_name || self.to_s.gsub('Eventbrite::', '').downcase
     end
   
     def plural_name(name = false)
@@ -57,7 +57,7 @@ module EventBright
     def updatable_date(*args)
       args.each{|symbol|
       
-        module_eval( "def #{symbol}(); EventBright.formatted_time(attribute_get(:#{symbol})); end")
+        module_eval( "def #{symbol}(); Eventbrite.formatted_time(attribute_get(:#{symbol})); end")
         module_eval( "def #{symbol}=(val, no_dirty = false); attribute_set(:#{symbol}, Time.parse(val), no_dirty); end")
       }
     end
@@ -65,7 +65,7 @@ module EventBright
     def readable_date(*args)
       args.each{|symbol|
       
-        module_eval( "def #{symbol}(); EventBright.formatted_time(attribute_get(:#{symbol})); end")
+        module_eval( "def #{symbol}(); Eventbrite.formatted_time(attribute_get(:#{symbol})); end")
         module_eval( "def #{symbol}=(val, no_dirty = false); attribute_set(:#{symbol}, Time.parse(val), true); end")
       }
     end

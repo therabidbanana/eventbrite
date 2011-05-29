@@ -4,11 +4,11 @@ require 'rake'
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
-    gem.name = "eventbright"
+    gem.name = "eventbrite"
     gem.summary = %Q{An unofficial gem for EventBrite Integration}
     gem.description = %Q{A simple, unoffical gem that integrates with the EventBrite events service. (http://www.eventbrite.com)}
     gem.email = "therabidbanana@gmail.com"
-    gem.homepage = "http://github.com/therabidbanana/eventbright"
+    gem.homepage = "http://github.com/therabidbanana/eventbrite"
     gem.authors = ["David Haslem"]
     gem.add_development_dependency "rspec", ">= 1.2.9"
     gem.add_dependency "httparty", ">= 0.5.2"

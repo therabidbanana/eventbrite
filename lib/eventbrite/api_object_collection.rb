@@ -1,4 +1,4 @@
-module EventBright
+module Eventbrite
   class ApiObjectCollection
     
     def initialize(owner = false, hash_array = [], parent = false)

@@ -1,6 +1,6 @@
 require 'httparty'
 require 'tzinfo'
-module EventBright
+module Eventbrite
   EVENTBRITE_TIME_STRING = '%Y-%m-%d %H:%M:%S'
   def self.setup(app_key = "YmRmMmMxMjYzNDYy", debug = false)
     @app_key = app_key
@@ -14,7 +14,7 @@ module EventBright
   def self.call(function, opts = {})
     @app_key ||= "YmRmMmMxMjYzNDYy"
     opts[:app_key] = @app_key
-    if opts[:user].is_a? EventBright::User 
+    if opts[:user].is_a? Eventbrite::User 
       # Allow passing User object instead of user auth info.
       u = opts.delete :user
       opts.merge!(u.auth)

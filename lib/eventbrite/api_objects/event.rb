@@ -1,11 +1,11 @@
-require 'eventbright/api_objects/organizer'
-require 'eventbright/api_objects/venue'
-require 'eventbright/api_objects/ticket'
-require 'eventbright/api_objects/organizer'
-require 'eventbright/api_objects/discount'
-require 'eventbright/api_objects/attendee'
-module EventBright
-  class Event < EventBright::ApiObject
+require 'eventbrite/api_objects/organizer'
+require 'eventbrite/api_objects/venue'
+require 'eventbrite/api_objects/ticket'
+require 'eventbrite/api_objects/organizer'
+require 'eventbrite/api_objects/discount'
+require 'eventbrite/api_objects/attendee'
+module Eventbrite
+  class Event < Eventbrite::ApiObject
 
     updatable :title, :description, :tags, :timezone
     updatable_date :start_date, :end_date
@@ -25,11 +25,11 @@ module EventBright
     renames :id => :event_id
     attr_accessor :organizer, :venue
     
-    has :organizer => EventBright::Organizer
-    has :venue => EventBright::Venue
-    collection :tickets => EventBright::TicketCollection
-    collection :attendees => EventBright::AttendeeCollection
-    collection :discounts => EventBright::DiscountCollection
+    has :organizer => Eventbrite::Organizer
+    has :venue => Eventbrite::Venue
+    collection :tickets => Eventbrite::TicketCollection
+    collection :attendees => Eventbrite::AttendeeCollection
+    collection :discounts => Eventbrite::DiscountCollection
     
     def privacy
       case attribute_get(:privacy)

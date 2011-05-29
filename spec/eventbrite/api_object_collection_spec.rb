@@ -1,8 +1,8 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
-describe EventBright::ApiObjectCollection do
+describe Eventbrite::ApiObjectCollection do
   before(:all) do
-    @b = EventBright::BananaBunch.new(false, [{"banana" => {:val => 1}}, {"banana" => {:val => 2}}])
+    @b = Eventbrite::BananaBunch.new(false, [{"banana" => {:val => 1}}, {"banana" => {:val => 2}}])
   end
   context "collection functions" do
     it "should pass through standard Array methods" do
@@ -38,20 +38,20 @@ describe EventBright::ApiObjectCollection do
   
   context "class definitions" do
     it "should have a singlet name same as class name" do
-      EventBright::BananaBunch.singlet_name.should == 'banana'
-      EventBright::BradyBunch.singlet_name.should == 'bob'
+      Eventbrite::BananaBunch.singlet_name.should == 'banana'
+      Eventbrite::BradyBunch.singlet_name.should == 'bob'
     end
     it "should add an s to the singlet name to get the plural" do
-      EventBright::BananaBunch.plural_name.should == 'bananas'
-      EventBright::BradyBunch.plural_name.should == 'joe'
+      Eventbrite::BananaBunch.plural_name.should == 'bananas'
+      Eventbrite::BradyBunch.plural_name.should == 'joe'
     end
     it "should know what class it collects" do
-      EventBright::BananaBunch.collection_for.should eql EventBright::Banana
-      EventBright::BradyBunch.collection_for.should eql EventBright::Brady
+      Eventbrite::BananaBunch.collection_for.should eql Eventbrite::Banana
+      Eventbrite::BradyBunch.collection_for.should eql Eventbrite::Brady
     end
     it "should have a getter" do
-      EventBright::BananaBunch.getter.should == "user_list_bananas"
-      EventBright::BradyBunch.getter.should == :foo_bar_baz
+      Eventbrite::BananaBunch.getter.should == "user_list_bananas"
+      Eventbrite::BradyBunch.getter.should == :foo_bar_baz
     end
   end
 
@@ -61,7 +61,7 @@ describe EventBright::ApiObjectCollection do
   end
   
   it "should silently reject useless objects (ones without required attributes, empty ones)"  do
-    @bb = EventBright::BradyBunch.new(false, [{"bob" => {:foo => 1}}, {"bob" => {}}, {"bob" => {:bar => 3}}])
+    @bb = Eventbrite::BradyBunch.new(false, [{"bob" => {:foo => 1}}, {"bob" => {}}, {"bob" => {:bar => 3}}])
     @bb.size.should == 1
   end
 end

@@ -1,5 +1,5 @@
-module EventBright
-  class User < EventBright::ApiObject
+module Eventbrite
+  class User < Eventbrite::ApiObject
     
     updatable :email, :password
     readable :user_key
@@ -8,9 +8,9 @@ module EventBright
     remap :user_id => :id
     ignores ['subusers']
     
-    collection :events => EventBright::EventCollection
-    collection :organizers => EventBright::OrganizerCollection
-    collection :venues => EventBright::VenueCollection
+    collection :events => Eventbrite::EventCollection
+    collection :organizers => Eventbrite::OrganizerCollection
+    collection :venues => Eventbrite::VenueCollection
     
     def initialize(user, no_load = false)
       preinit

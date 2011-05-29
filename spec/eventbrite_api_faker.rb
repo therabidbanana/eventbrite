@@ -5,11 +5,20 @@ def fake_response(call)
       string << line
     end
   end
-  HTTParty::Response.new(HTTParty::Parser.call(string, :json), string, 200, "")
+  HTTParty::Response.new(call, FakeResponse.new, HTTParty::Parser.call(string, :json))
+end
+
+class FakeResponse
+  def body
+    ""
+  end
+  def to_hash
+    {}
+  end
 end
 
 
-module EventBright
+module Eventbrite
   class API
     def self.do_post(string, opts = {})
       fake_response(string)

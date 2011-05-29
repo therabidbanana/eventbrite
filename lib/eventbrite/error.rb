@@ -1,4 +1,4 @@
-module EventBright
+module Eventbrite
   class Error < Exception
     attr_accessor :type, :response, :message
     def initialize(message, type = "", response = nil)
@@ -8,7 +8,7 @@ module EventBright
       super(message)
     end
     def inspect
-      "<EventBright::Error(#{type}): #{message}>"
+      "<Eventbrite::Error(#{type}): #{message}>"
     end
   end
 end
