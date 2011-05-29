@@ -1,11 +1,11 @@
 # put this file in your config/initializers
 # in your code call:
-#   EventBright.setup(EventBright::KEYS[:api], true)
-#   eventbrite_user = EventBright::User.new(EventBright::KEYS[:user])
+#   Eventbrite.setup(Eventbrite::KEYS[:api], true)
+#   eventbrite_user = Eventbrite::User.new(Eventbrite::KEYS[:user])
 
-require 'eventbright'
+require 'eventbrite'
 
-module EventBright
+module Eventbrite
   #request an api key here: http://www.eventbrite.com/api/key
   #find your user key here: http://www.eventbrite.com/userkeyapi
   KEYS = {:api => "your api key", :user => "your user key"}
