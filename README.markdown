@@ -1,4 +1,4 @@
-eventbright
+eventbrite
 ================
 
 A simple library for integrating with EventBrite's API. Requires the "httparty" gem for connecting and doing XML parsing, and "tzinfo" gem for getting back and forth between timezone names and GMT offsets.
@@ -6,10 +6,10 @@ A simple library for integrating with EventBrite's API. Requires the "httparty" 
 Usage
 -----
 
-    require 'eventbright'
-    EventBright.setup("APP_KEY")
-    user = EventBright::User.new("USER_KEY") #=> <EventBright::User >
-    user.venues #=> [<EventBright::Venue>,...] # Venues the user has defined
+    require 'eventbrite'
+    Eventbrite.setup("APP_KEY")
+    user = Eventbrite::User.new("USER_KEY") #=> <Eventbrite::User >
+    user.venues #=> [<Eventbrite::Venue>,...] # Venues the user has defined
 
 Authentication
 --------------
@@ -17,7 +17,7 @@ Many methods require user authentication. For these methods, you can pass a user
 
 Example:
     
-    EventBright::Event.new({"x" => "y"... , "user" => user})
+    Eventbrite::Event.new({"x" => "y"... , "user" => user})
 
 Known Bugs
 ----------
