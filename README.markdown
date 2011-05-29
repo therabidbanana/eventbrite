@@ -16,6 +16,9 @@ Usage
     user = Eventbrite::User.new("USER_KEY") #=> <Eventbrite::User >
     user.venues #=> [<Eventbrite::Venue>,...] # Venues the user has defined
 
+
+Some basic (yardoc generated) documentation availabe at: http://therabidbanana.github.com/eventbrite/
+
 Authentication
 --------------
 Many methods require user authentication. For these methods, you can pass a user object as an authentication token, and the user's api_key will automatically be used for the request. 
