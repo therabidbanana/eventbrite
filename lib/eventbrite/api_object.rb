@@ -94,7 +94,8 @@ module Eventbrite
 
       @attributes ||= {}
       hash.each do |k, v| 
-        self.__send__("#{k}=", v, no_dirty) unless (self.class.ignores.include?(k) ||
+        self.__send__("#{k}=", v, no_dirty) unless (v.nil? || v.blank? ||
+                                                    self.class.ignores.include?(k) ||
                                                     self.class.ignores.include?(k.to_sym)) ||
                                                     self.class.relations.include?(k) ||
                                                     self.class.relations.include?(k.to_sym) ||
