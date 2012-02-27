@@ -89,6 +89,10 @@ module Eventbrite
     # @private
     # Loads all attributes from hash unless set to ignore.
     def init_with_hash(hash, no_dirty = false)
+      if hash.class.name == "Array"
+        hash = hash.first
+      end
+
       @attributes ||= {}
       hash.each do |k, v| 
         self.__send__("#{k}=", v, no_dirty) unless (self.class.ignores.include?(k) ||
