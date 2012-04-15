@@ -9,7 +9,6 @@ module Eventbrite
     updatable :organizer_id
     readable :latitude, :longitude
     requires :name
-    renames :name => :venue, :address => :adress, :address_2 => :adress_2
     ignores :"Lat-Long"
     
     # Region is same as state in US
