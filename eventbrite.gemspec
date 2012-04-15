@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = "eventbrite"
-  s.version = "0.4.1"
+  s.version = "0.4.2"
   s.authors = ["David Haslem"]
   s.date = "2012-04-15"
   s.description = "A simple, unoffical gem that integrates with the EventBrite events service. (http://www.eventbrite.com)"
