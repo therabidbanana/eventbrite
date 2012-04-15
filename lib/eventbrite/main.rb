@@ -25,7 +25,7 @@ module Eventbrite
       opts.merge!(u.auth)
     end 
     debug "\tSending  /#{function}\t\t(#{opts.inspect})"
-    response = API.do_post("/#{function}", :body => opts)
+    response = API.do_post("/#{function}", :query => opts)
     debug "\tResponse /#{function}\t\t#{response.inspect}"
     response
   end

@@ -12,7 +12,7 @@ describe Eventbrite do
     }.should_not raise_error
   end
   it "should call httparty with key given to setup" do
-    Eventbrite::API.should_receive(:do_post).with(anything, hash_including(:body => hash_including(:app_key => "key")))
+    Eventbrite::API.should_receive(:do_post).with(anything, hash_including(:query => hash_including(:app_key => "key")))
     Eventbrite.call("event_get", {})
   end
   
@@ -24,7 +24,7 @@ describe Eventbrite do
   end
     
   it "should replace a user object with a user_key on #call" do
-    Eventbrite::API.should_receive(:do_post).with("/user_get", {:body => {:app_key => "key", "user_key" => "fake_key"}})
+    Eventbrite::API.should_receive(:do_post).with("/user_get", {:query => {:app_key => "key", "user_key" => "fake_key"}})
     Eventbrite.call(:user_get, :user => Eventbrite::User.new("fake_key", true))
   end
   

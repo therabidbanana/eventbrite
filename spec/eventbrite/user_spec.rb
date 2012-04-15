@@ -19,7 +19,7 @@ describe Eventbrite::User do
   end
   
   it "should accept an array of [email, password] as authentication" do
-    Eventbrite::API.should_receive(:do_post).with("/user_get", :body => hash_including("password", "user")).and_return(fake_response("/user_get"))
+    Eventbrite::API.should_receive(:do_post).with("/user_get", :query => hash_including("password", "user")).and_return(fake_response("/user_get"))
     u = Eventbrite::User.new(["fake_user", "fake_pass"])
     u.attribute_get(:email).should_not be_nil
   end
