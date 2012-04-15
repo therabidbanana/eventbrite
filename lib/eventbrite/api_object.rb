@@ -75,7 +75,6 @@ module Eventbrite
       
         response = Eventbrite.call("#{self.class.singlet_name}_get", prep_api_hash('get'))
         hash = response["#{self.class.singlet_name}"]
-        warn hash.inspect
       end
       unless hash.nil? || hash.size == 0
         init_with_hash(hash, no_dirty)
