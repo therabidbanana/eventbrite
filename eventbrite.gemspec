@@ -5,15 +5,10 @@ Gem::Specification.new do |s|
   s.date = "2012-04-15"
   s.description = "A simple, unoffical gem that integrates with the EventBrite events service. (http://www.eventbrite.com)"
   s.email = "therabidbanana@gmail.com"
-  s.extra_rdoc_files = [
-    "LICENSE",
-    "README.markdown"
-  ]
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.homepage = "http://github.com/therabidbanana/eventbrite"
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.12"
   s.summary = "An unofficial gem for EventBrite Integration"
 
   s.add_development_dependency(%q<rspec>, "~> 2.0")
