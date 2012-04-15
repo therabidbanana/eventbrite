@@ -42,6 +42,7 @@ module Eventbrite
     # do anything.
     def save(*args)
       # noop. Attendees can't be altered via api
+      warn "Can't save attendees"
     end
   end
 

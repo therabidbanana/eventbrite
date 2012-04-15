@@ -72,8 +72,10 @@ module Eventbrite
     # the object as clean.
     def load(hash = {}, no_dirty = false)
       if hash.nil? || hash.size == 0
+      
         response = Eventbrite.call("#{self.class.singlet_name}_get", prep_api_hash('get'))
         hash = response["#{self.class.singlet_name}"]
+        warn hash.inspect
       end
       unless hash.nil? || hash.size == 0
         init_with_hash(hash, no_dirty)
