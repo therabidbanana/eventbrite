@@ -42,13 +42,24 @@ module Eventbrite
   end
   
   # @private
+  # Parses a date string if it's not already a ruby time
+  def self.timeparse(date)
+    case date
+    when Time
+      date
+    when String
+      Time.parse(date)
+    end
+  end
+  
+  # @private
   # Formats an Eventbrite date
   def self.formatted_time(date)
     case date
     when Time
       date.strftime(EVENTBRITE_TIME_STRING)
     when String
-      Time.parse(String).strftime(EVENTBRITE_TIME_STRING)
+      Time.parse(date).strftime(EVENTBRITE_TIME_STRING)
     end
   end
   
