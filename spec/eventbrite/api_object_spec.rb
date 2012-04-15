@@ -1,6 +1,4 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
-require File.expand_path(File.dirname(__FILE__) + '/api_object_class_spec')
-require File.expand_path(File.dirname(__FILE__) + '/api_object_relationship_spec')
 describe Eventbrite::ApiObject do
   before(:all) do
     

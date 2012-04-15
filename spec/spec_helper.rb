@@ -3,8 +3,8 @@ $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 require 'rubygems'
 require 'eventbrite'
 require 'eventbrite_api_faker'
-require 'spec'
-require 'spec/autorun'
+# require 'spec'
+# require 'spec/autorun'
 
 Spec::Runner.configure do |config|
   
