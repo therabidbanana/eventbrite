@@ -66,19 +66,10 @@ issues - otherwise you could probably just use HTTParty directly.</p>
 <p><strong>/get => /update variable inconsistencies</strong></p>
 
 <ul>
-<li>event.id => event.event_id</li>
 <li>event.timezone (Olson format, ex: "US/Central") => event.timezone (GMT offset hours, ex: "GMT-05")</li>
 <li>event.privacy (String representing privacy "Private"|"Public") => event.privacy (Boolean 0 = public)</li>
-<li>event.url => event.personalized_url</li>
-<li>venue.address => venue.adress</li>
-<li>venue.address_2 => venue.adress_2</li>
-<li>venue.name => venue.venue</li>
-<li>event.tickets.ticket.start_date => ticket.start_sales</li>
-<li>event.tickets.ticket.end_date => ticket.end_sales</li>
 <li>event.tickets.ticket.visible (1 is visible) => ticket.hide (y is hidden, n is visible)</li>
-<li>event.tickets.ticket.quantity_available => ticket.quantity</li>
 </ul>
-
 
 <p><strong>Fields you can't edit</strong></p>
 
