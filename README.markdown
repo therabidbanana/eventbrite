@@ -66,16 +66,7 @@ Register for your own app key here: [Request a Key](http://www.eventbrite.com/ap
 API Gotchas 
 ------------
 
-I've compiled a  list of issues developers may encounter with the poorly
-designed Eventbrite API (in case you're writing your own integration
-from scratch in Ruby or any other language). 
-
-There are many places where variable names are misspelled, or format is
-changed, and many places where the API documentation is flat out wrong
-(dates are not ISO8601 anywhere in the eventbrite api, though they claim
-they are).
-
-Read the details at: http://therabidbanana.github.com/eventbrite/file.ImplementationGotchas.html
+There are some sticky points to the Eventbrite api this library helps with - read the details at: http://therabidbanana.github.com/eventbrite/file.ImplementationGotchas.html
 
 
 Note on Patches/Pull Requests
