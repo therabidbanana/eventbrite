@@ -1,4 +1,4 @@
-Eventbrite's API was very poorly done. It's been improved over the past couple
+Eventbrite's API ahs been improved over the past couple
 years, but still has some weirdness. 
 
 I've catalogued a list of
@@ -15,17 +15,9 @@ A list of sticking points for anyone attempting their own integration with the E
 
 __/get => /update variable inconsistencies__
 
-* event.id => event.event_id
 * event.timezone (Olson format, ex: "US/Central") => event.timezone (GMT offset hours, ex: "GMT-05")
 * event.privacy (String representing privacy "Private"|"Public") => event.privacy (Boolean 0 = public)
-* event.url => event.personalized_url
-* (fixed) venue.address => venue.adress
-* (fixed) venue.address_2 => venue.adress_2
-* (fixed) venue.name => venue.venue
-* event.tickets.ticket.start_date => ticket.start_sales
-* event.tickets.ticket.end_date => ticket.end_sales
 * event.tickets.ticket.visible ("true" is visible) => ticket.hide (y is hidden, n is visible)
-* event.tickets.ticket.quantity_available => ticket.quantity
 
 __Fields you can't edit__
 
