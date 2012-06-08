@@ -20,7 +20,7 @@ Usage
     user.venues #=> [<Eventbrite::Venue>,...] # Venues the user has defined
 
 
-Some basic (yardoc generated) documentation availabe at: http://therabidbanana.github.com/eventbrite/
+Some basic (yardoc generated) documentation availabe at: http://rdoc.info/github/therabidbanana/eventbrite/
 
 This library attempts to create an almost ActiveResource like wrapper
 around the Eventbrite api. The following objects are available:
