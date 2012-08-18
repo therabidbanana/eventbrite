@@ -54,9 +54,7 @@ Known Issues
 A Note About App Keys
 ---------------------
 
-This gem has an application key for accessing EventBrite, but each app key is limited to 30,000 requests a day. To make sure your limits aren't affected by others, you should register for your own app key specific to the application you're adding the gem to. 
-
-If you just want to give the gem a whirl (you have to wait for approval to get your own) just don't call setup. The app key for the gem will be used.
+You should register your own app key specific to the application you're adding the gem to. 
 
 Learn more about EventBrite's App Key policy here: [Terms of Service](http://www.eventbrite.com/api/terms)
 
